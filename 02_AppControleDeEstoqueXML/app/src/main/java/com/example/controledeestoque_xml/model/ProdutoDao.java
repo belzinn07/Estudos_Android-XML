@@ -1,0 +1,29 @@
+package com.example.controledeestoque_xml.model;
+
+import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
+
+import java.util.List;
+
+@Dao
+public interface ProdutoDao {
+
+    @Insert
+    void inserir(Produto produto);
+    @Update
+    void  atualizar(Produto produto);
+    @Delete
+    void deletar(Produto produto);
+
+    @Query( "SELECT * FROM tabela_produto")
+    List<Produto> getAllProdutos();
+    @Query(("SELECT * FROM tabela_produto WHERE id = :id"))
+    LiveData<Produto> getProdutosById(int id);
+
+
+
+}

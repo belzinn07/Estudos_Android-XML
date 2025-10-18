@@ -1,53 +1,51 @@
 package com.example.controledeestoque_xml.model;
 
-public class Produto {
-    private Long id;
-    private String nome;
-    private Double preco;
-    private int quantidade;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-    public  Produto(Long id, String nome, Double preco, int quantidade){
-        this.id = id;
+@Entity(tableName = "tabela_produto")
+public class Produto {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+    @ColumnInfo(name = "nome_produto")
+    private  String nome;
+    @ColumnInfo(name = "preco_produto")
+    private Double precoUnitario;
+    @ColumnInfo(name = "quantidade_produto")
+    private int quantidade;
+    @ColumnInfo(name = "categoria_produto")
+    private Categoria categoria;
+
+    public Produto(String nome, Double precoUnitario, int quantidade){
         this.nome = nome;
-        this.preco = preco;
+        this.precoUnitario = precoUnitario;
         this.quantidade =quantidade;
     }
 
-    public Long getId() {
-        return id;
+
+    public String getNome() {
+        return nome;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Double getPrecoUnitario() {
+        return precoUnitario;
     }
 
-    public String getNome(){
-        return  nome;
+    public int getQuantidade() {
+        return quantidade;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public Double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(Double preco) {
-        this.preco = preco;
-    }
-
-    public int getQuantidade(){
-        return quantidade;
+    public void setPrecoUnitario(Double precoUnitario) {
+        this.precoUnitario = precoUnitario;
     }
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 
-    @Override
-    public String toString(){
-        return id + " - " + nome + "Preço: R$" + preco + "Qtd: " + quantidade;
-
-    }
 }
