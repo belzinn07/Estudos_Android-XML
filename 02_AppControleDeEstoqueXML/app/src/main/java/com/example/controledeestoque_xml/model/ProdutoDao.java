@@ -19,10 +19,12 @@ public interface ProdutoDao {
     @Delete
     void deletar(Produto produto);
 
-    @Query( "SELECT * FROM tabela_produto")
-    List<Produto> getAllProdutos();
-    @Query(("SELECT * FROM tabela_produto WHERE id = :id"))
-    LiveData<Produto> getProdutosById(int id);
+    @Query( "SELECT * FROM tabela_produto ORDER BY nome_produto ASC")
+    LiveData<List<Produto>> buscarTodosProdutos();
+
+    @Query("DELETE FROM tabela_produto")
+    void deletarTodosProdutos();
+
 
 
 

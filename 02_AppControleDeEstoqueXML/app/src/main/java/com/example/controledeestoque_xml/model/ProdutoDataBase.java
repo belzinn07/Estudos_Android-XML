@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 @Database(entities = {Produto.class}, version = 1, exportSchema = false)
-public abstract class ProdutoDataBase {
+public abstract class ProdutoDataBase extends  RoomDatabase {
     private static volatile ProdutoDataBase INSTANCE;
     public abstract ProdutoDao produtoDao();
 
@@ -19,10 +19,13 @@ public abstract class ProdutoDataBase {
                             context.getApplicationContext(),
                             ProdutoDataBase.class,
                             "produto_db"
-                    ).build();
+                    )
+                            .fallbackToDestructiveMigration()
+                            .build();;
                 }
             }
         }
+        return INSTANCE;
     }
 
 
