@@ -37,6 +37,13 @@ dependencies {
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
 
 
+
+
+        implementation("androidx.recyclerview:recyclerview:1.4.0")
+        // For control over item selection of both touch and mouse driven selection
+        implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
+
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

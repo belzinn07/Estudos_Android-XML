@@ -1,73 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    tools:context=".view.MainActivity">
 
 
-
-    <TextView
-        android:id="@+id/textNomeApp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Controle de Estoque"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
 
-
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nome do Produto"
-        android:inputType="textEmailAddress">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editNome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Preço"
-        android:inputType="numberDecimal">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editPreco"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            />
+            android:layout_weight="1"
+            android:text="Total em estoque:"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/valor_total_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="R$ 0,00" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="56dp"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:listitem="@layout/item_produto" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_produto"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Quantidade"
-        android:layout_marginTop="16dp"
-        android:inputType="number">
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add"
+        app:tint="@android:color/white" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editQuantidade"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-    
-    <Button
-        android:id="@+id/btnAdiconar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Adicionar Produto"
-        android:layout_marginTop="24dp"/>
-
-
-
-    
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
