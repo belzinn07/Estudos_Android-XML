@@ -5,6 +5,7 @@ public enum Categoria {
     ALIMENTO,
     VESTUARIO,
     BEBIDA,
-    BELEZA
+    BELEZA,
+    CASA
 
 }
