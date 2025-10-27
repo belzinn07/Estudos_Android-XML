@@ -1,10 +1,13 @@
 package com.example.controledeestoque_xml.view.ui;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -80,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(Produto produto) {
                 Intent intent = new Intent(MainActivity.this, AddProdutoActivity.class);
-                intent.putExtra("PRODUTO_EXTRA", (Parcelable) produto);
+                intent.putExtra("PRODUTO EXTRA",  produto);
                 startActivityForResult(intent, EDIT_PRODUTO_REQUEST_CODE);
             }
 
@@ -90,9 +93,42 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnExcluirProdutoListener(new OnExcluirProdutoListener() {
             @Override
             public void onExcluir(Produto produto) {
-                produtoViewModel.deletarProduto(produto);
+                msgConfirmacaoExclusao(produto);
             }
         });
+
+
+
+
+
+
+    }
+
+    private void msgConfirmacaoExclusao(Produto produto){
+        Context applicationContext = getApplicationContext();
+
+        new AlertDialog.Builder(this)
+                .setTitle("Confirmação")
+                .setMessage("Tem certeza que deseja excluir este produto: ("  + produto.getNome()  + ")? ")
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        produtoViewModel.deletarProduto(produto);
+                        Toast.makeText(applicationContext, "Produto excluído com sucesso", Toast.LENGTH_SHORT).show();
+
+                    }
+                })
+
+                .setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, "Exclusão cancelada", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                })
+
+                .setCancelable(false)
+                .show();
 
     }
 

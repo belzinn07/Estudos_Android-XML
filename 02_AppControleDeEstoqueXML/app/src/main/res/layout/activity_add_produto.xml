@@ -60,71 +60,20 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <Button
+        android:id="@+id/btnSelecionarCategoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selecionar Categoria" />
+
     <TextView
-        android:id="@+id/textCategoria"
+        android:id="@+id/textCategoriaSelecionada"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Categoria"
-        android:textLocale="center"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:text="Nenhuma categoria selecionada"
+        android:textStyle="italic"
+        android:padding="8dp" />
 
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
-    <RadioButton
-        android:id="@+id/rbEletronico"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Eletrônicos"/>
-
-        <RadioButton
-            android:id="@+id/rbAlimento"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Alimento"/>
-
-        <RadioButton
-            android:id="@+id/rbVestuario"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Vestuário" />
-
-    </RadioGroup>
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rbBebida"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Bebida" />
-
-        <RadioButton
-            android:id="@+id/rbBeleza"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Beleza" />
-
-        <RadioButton
-            android:id="@+id/rbCasa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Casa" />
-
-    </RadioGroup>
 
     <Button
         android:id="@+id/btnAdiconar"

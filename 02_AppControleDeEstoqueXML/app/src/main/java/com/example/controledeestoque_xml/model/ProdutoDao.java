@@ -22,7 +22,7 @@ public interface ProdutoDao {
     @Query( "SELECT * FROM tabela_produto ORDER BY id DESC")
     LiveData<List<Produto>>     buscarTodosProdutos();
 
-    @Query("SELECT * FROM tabela_produto  ORDER BY nome_produto ASC")
-    void buscarPorNome();
 
 }
+
+

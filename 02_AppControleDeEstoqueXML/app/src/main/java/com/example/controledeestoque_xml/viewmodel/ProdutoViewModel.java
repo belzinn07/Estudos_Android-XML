@@ -58,17 +58,10 @@ public class ProdutoViewModel extends AndroidViewModel{
     public void deletarProduto(Produto produto){
         produtoRepository.deletarProduto(produto);
     }
-/*
-    public boolean validarCampos(){
-        List<Produto> lista = todosProdutos.getValue();
 
-        for (Produto produto : lista){
-            if (produto.getNome().isEmpty() || produto.getPrecoUnitario() <= 0 || produto.getQuantidade() <= 0){
-                Log.e("ProdutoViewModel","Preencha todos os campos corretamente");
-                return false;
-            }
-        }
-        return true;
-    }
-*/
+
+
+
+
+
 }

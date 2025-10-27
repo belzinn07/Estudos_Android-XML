@@ -15,18 +15,18 @@ import com.example.controledeestoque_xml.R;
 import com.example.controledeestoque_xml.model.Produto;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 public class ProdutoAdapter extends  RecyclerView.Adapter<ProdutoAdapter.ProdutoViewHolder>{
 
-    private List<Produto> listaDeProdutos;
+    private List<Produto> listaDeProdutos = new ArrayList<>();
     private OnItemClickListener listener;
     private OnExcluirProdutoListener onExcluirProduto;
 
-    public ProdutoAdapter(){
 
-    }
+
 
 
 
@@ -109,5 +109,4 @@ public class ProdutoAdapter extends  RecyclerView.Adapter<ProdutoAdapter.Produto
     public void setOnExcluirProdutoListener(OnExcluirProdutoListener onExcluirProduto){
         this.onExcluirProduto = onExcluirProduto;
     }
-
 }
