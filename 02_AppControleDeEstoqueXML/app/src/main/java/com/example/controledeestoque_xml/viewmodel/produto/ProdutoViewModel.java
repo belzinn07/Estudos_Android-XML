@@ -1,7 +1,6 @@
-package com.example.controledeestoque_xml.viewmodel;
+package com.example.controledeestoque_xml.viewmodel.produto;
 
 import android.app.Application;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -9,8 +8,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.Observer;
 
-import com.example.controledeestoque_xml.model.Produto;
-import com.example.controledeestoque_xml.model.ProdutoRepository;
+import com.example.controledeestoque_xml.data.local.entities.Produto;
+import com.example.controledeestoque_xml.data.repository.ProdutoRepository;
 
 import java.util.List;
 

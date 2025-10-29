@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.controledeestoque_xml.R;
-import com.example.controledeestoque_xml.model.Produto;
+import com.example.controledeestoque_xml.data.local.entities.Produto;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;

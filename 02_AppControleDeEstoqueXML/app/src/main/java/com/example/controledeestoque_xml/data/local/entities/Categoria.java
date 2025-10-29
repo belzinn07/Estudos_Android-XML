@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.model;
+package com.example.controledeestoque_xml.data.local.entities;
 
 public enum Categoria {
     ALIMENTOS,

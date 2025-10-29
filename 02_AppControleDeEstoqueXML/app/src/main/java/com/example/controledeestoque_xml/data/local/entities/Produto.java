@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.model;
+package com.example.controledeestoque_xml.data.local.entities;
 
 import android.os.Parcel;
 import android.os.Parcelable;

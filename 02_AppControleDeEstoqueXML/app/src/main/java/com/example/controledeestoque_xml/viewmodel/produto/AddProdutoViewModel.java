@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.viewmodel;
+package com.example.controledeestoque_xml.viewmodel.produto;
 
 import android.app.Application;
 import android.util.Log;
@@ -8,8 +8,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.controledeestoque_xml.model.Produto;
-import com.example.controledeestoque_xml.model.ProdutoRepository;
+import com.example.controledeestoque_xml.data.local.entities.Produto;
+import com.example.controledeestoque_xml.data.repository.ProdutoRepository;
 
 public class AddProdutoViewModel extends AndroidViewModel {
 
@@ -50,8 +50,10 @@ public class AddProdutoViewModel extends AndroidViewModel {
             produtoExistente.setPrecoUnitario(produtoExistente.getPrecoUnitario());
             produtoExistente.setQuantidade(produtoNovo.getQuantidade());
             repository.atualizarProduto(produtoExistente);
+            mensagemLiveData.setValue("Produto atualizado com sucesso!");
         }else {
             repository.adicionarProduto(produtoNovo);
+            mensagemLiveData.setValue("Produto adicionado com sucesso!");
         }
 
     }

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ControleDeEstoqueXML">
         <activity
-            android:name=".view.ui.MainActivity"
+            android:name=".view.ui.produto.AddProdutoActivity$MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +24,12 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.ui.AddProdutoActivity">
+        <activity android:name=".view.ui.produto.AddProdutoActivity">
         </activity>
 
+
+
     </application>
+
 
 </manifest>

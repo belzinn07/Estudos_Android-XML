@@ -1,8 +1,12 @@
-package com.example.controledeestoque_xml.model;
+package com.example.controledeestoque_xml.data.repository;
 
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
+
+import com.example.controledeestoque_xml.data.local.dao.ProdutoDao;
+import com.example.controledeestoque_xml.data.local.database.ProdutoDataBase;
+import com.example.controledeestoque_xml.data.local.entities.Produto;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
