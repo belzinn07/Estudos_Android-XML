@@ -11,14 +11,14 @@ import com.example.controledeestoque_xml.data.local.entities.Produto;
 
 @Database(entities = {Produto.class}, version = 1, exportSchema = false)
 public abstract class ProdutoDataBase extends  RoomDatabase {
-    private static volatile ProdutoDataBase INSTANCE;
+    private static volatile ProdutoDataBase instancia;
     public abstract ProdutoDao produtoDao();
 
     public static  ProdutoDataBase getINSTANCE(Context context){
-        if (INSTANCE == null){
+        if (instancia == null){
             synchronized (ProdutoDataBase.class){
-                if (INSTANCE == null){
-                    INSTANCE = Room.databaseBuilder(
+                if (instancia == null){
+                    instancia = Room.databaseBuilder(
                             context.getApplicationContext(),
                             ProdutoDataBase.class,
                             "produto_db"
@@ -28,7 +28,7 @@ public abstract class ProdutoDataBase extends  RoomDatabase {
                 }
             }
         }
-        return INSTANCE;
+        return instancia;
     }
 
 
