@@ -15,7 +15,7 @@ public interface ApiService {
     Call<LoginResponse> login(@Body LoginRequest loginRequest);
 
     @POST("cadastro")
-    Call<CadastroResponse> cadastro(@Body CadastroRequest cadastroRequest);
+    Call<CadastroResponse> cadastrar(@Body CadastroRequest cadastroRequest);
 
 
 

@@ -10,6 +10,8 @@ public class Usuario {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
+    @ColumnInfo(name = "token_usuario")
+    private String token;
     @ColumnInfo(name = "nome_usuario")
     private String nome;
     @ColumnInfo(name = "email_usuario")
@@ -17,10 +19,8 @@ public class Usuario {
     @ColumnInfo(name = "senha_usuario")
     private String senha;
 
-    public Usuario(String nome, String email, String senha) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
+    public Usuario() {
+
     }
 
     public int getId() {
@@ -29,6 +29,14 @@ public class Usuario {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getNome() {

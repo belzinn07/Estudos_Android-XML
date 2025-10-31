@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.lifecycle.viewmodel.android)
     val roomVersion = "2.8.2"
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")

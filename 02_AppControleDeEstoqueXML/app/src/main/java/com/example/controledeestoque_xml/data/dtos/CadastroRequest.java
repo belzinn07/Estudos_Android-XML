@@ -1,6 +1,10 @@
 package com.example.controledeestoque_xml.data.dtos;
 
+import com.google.gson.annotations.SerializedName;
+
 public class CadastroRequest {
+
+
     private String nomeEmpresa;
     private String email;
     private String senha;

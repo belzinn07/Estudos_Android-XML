@@ -3,6 +3,8 @@ package com.example.controledeestoque_xml.data.local.dao;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
+import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.controledeestoque_xml.data.local.entities.Usuario;
@@ -10,13 +12,15 @@ import com.example.controledeestoque_xml.data.local.entities.Usuario;
 @Dao
 public interface UsuarioDao {
 
-    @Insert
+    @Query("SELECT * FROM tabela_usuario LIMIT 1")
+    Usuario getUsuarioLogado();
+
+    @Query("DELETE FROM tabela_usuario")
+    Usuario deleteUsuarioLogado();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void inserir(Usuario usuario);
 
-    @Update
-    void atualizar(Usuario usuario);
 
-    @Delete
-    void deletar(Usuario usuario);
 
 }
