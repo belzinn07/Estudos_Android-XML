@@ -1,9 +1,8 @@
 package com.example.controledeestoque_xml.data.dtos;
 
-import com.example.controledeestoque_xml.data.local.entities.Usuario;
 import com.google.gson.annotations.SerializedName;
 
-public class LoginResponse{
+public class AutenticarResponse {
     @SerializedName("sucesso")
     private boolean sucess;
     @SerializedName("token")
@@ -11,7 +10,7 @@ public class LoginResponse{
     @SerializedName("mensagem")
     private String mensagem;
 
-    public LoginResponse(boolean sucess, String token, String mensagem){
+    public AutenticarResponse(boolean sucess, String token, String mensagem){
         this.sucess = sucess;
         this.token = token;
         this.mensagem = mensagem;

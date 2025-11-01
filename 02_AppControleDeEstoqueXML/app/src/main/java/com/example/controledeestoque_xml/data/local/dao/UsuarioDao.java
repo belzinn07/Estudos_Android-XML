@@ -1,5 +1,6 @@
 package com.example.controledeestoque_xml.data.local.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -13,14 +14,12 @@ import com.example.controledeestoque_xml.data.local.entities.Usuario;
 public interface UsuarioDao {
 
     @Query("SELECT * FROM tabela_usuario LIMIT 1")
-    Usuario getUsuarioLogado();
+    LiveData<Usuario> getUsuarioLogado();
 
     @Query("DELETE FROM tabela_usuario")
-    Usuario deleteUsuarioLogado();
+     void deletarUsuarioLogado();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void inserir(Usuario usuario);
-
-
 
 }

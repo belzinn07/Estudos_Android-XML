@@ -7,12 +7,16 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.example.controledeestoque_xml.data.local.dao.ProdutoDao;
+import com.example.controledeestoque_xml.data.local.dao.UsuarioDao;
 import com.example.controledeestoque_xml.data.local.entities.Produto;
+import com.example.controledeestoque_xml.data.local.entities.Usuario;
 
-@Database(entities = {Produto.class}, version = 1, exportSchema = false)
+@Database(entities = {Produto.class, Usuario.class}, version = 1, exportSchema = false)
 public abstract class ProdutoDataBase extends  RoomDatabase {
     private static volatile ProdutoDataBase instancia;
     public abstract ProdutoDao produtoDao();
+    public abstract UsuarioDao usuarioDao();
+
 
     public static  ProdutoDataBase getINSTANCE(Context context){
         if (instancia == null){

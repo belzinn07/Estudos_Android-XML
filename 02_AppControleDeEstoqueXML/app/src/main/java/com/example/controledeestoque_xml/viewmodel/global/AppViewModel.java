@@ -1,33 +1,39 @@
 package com.example.controledeestoque_xml.viewmodel.global;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Transformations;
+import androidx.lifecycle.ViewModel;
 
-import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.MutableLiveData;
+import com.example.controledeestoque_xml.data.local.entities.Usuario;
+import com.example.controledeestoque_xml.data.repository.UsuarioRepository;
 
-import com.example.controledeestoque_xml.data.local.entities.Empresa;
+public class AppViewModel extends ViewModel {
 
-public class AppViewModel extends AndroidViewModel {
+    private final UsuarioRepository usuarioRepository;
+    private final LiveData<Usuario> usuarioLogadoLiveData;
+    private final LiveData<Boolean> usuarioLogado;
 
-    private MutableLiveData<Empresa> empresaLogada = new MutableLiveData<>();
-    private SharedPreferences preferences;
 
-    public AppViewModel(android.app.Application application) {
-        super(application);
-        preferences = application.getSharedPreferences("app_preferences", Context.MODE_PRIVATE);
-
+    public AppViewModel(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+        this.usuarioLogadoLiveData = usuarioRepository.getUsuarioLogado();
+        this.usuarioLogado = Transformations.map(usuarioRepository.getUsuarioLogado(), usuario -> usuario != null);
     }
 
-    private void carregarEmpresaLogada(){
-        String nome = preferences.getString("empresa_nome", null);
-        String email = preferences.getString("empresa_email", null );
-        String senha = preferences.getString("empresa_senha", null);
-
+    public LiveData<Usuario> getUsuarioLogadoLiveData() {
+        return usuarioLogadoLiveData;
     }
 
+    public  LiveData<Usuario> login(String email, String senha) {
+        return usuarioRepository.login(email, senha);
+    }
 
+    public LiveData<Usuario> cadastrar(String nome, String email, String senha) {
+        return usuarioRepository.cadastrar(nome, email, senha);
+    }
 
-
+    public void logout() {
+        usuarioRepository.logout();
+    }
 
 }
