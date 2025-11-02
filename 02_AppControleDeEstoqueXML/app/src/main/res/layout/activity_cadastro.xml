@@ -9,12 +9,28 @@
 
 
     <TextView
-        android:id="@+id/textLogin"
+        android:id="@+id/textCadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Cadastrar Empresa"
         android:textSize="20sp"
         android:textStyle="bold"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome"
+        android:inputType="text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
 
@@ -52,21 +68,19 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
-
-
-    <Button
-        android:id="@+id/btnEntrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Entrar"
-        android:layout_marginTop="24dp"/>
-
     <Button
         android:id="@+id/btnCadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cadastre-se"
+        android:text="Cadastrar"
         android:layout_marginTop="24dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBarCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center"/>
+
 
 </LinearLayout>

@@ -1,11 +1,11 @@
-package com.example.controledeestoque_xml.core;
+package com.example.controledeestoque_xml.viewmodel.global;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.controledeestoque_xml.data.repository.UsuarioRepository;
-import com.example.controledeestoque_xml.viewmodel.global.AppViewModel;
+
 public class AppViewModelFactory implements ViewModelProvider.Factory {
 
     private final UsuarioRepository repository;

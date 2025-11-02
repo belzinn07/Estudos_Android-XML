@@ -5,22 +5,22 @@ import com.google.gson.annotations.SerializedName;
 public class CadastroRequest {
 
 
-    private String nomeEmpresa;
+    private String nome;
     private String email;
     private String senha;
 
-    public CadastroRequest(String nomeEmpresa, String email, String senha) {
-        this.nomeEmpresa = nomeEmpresa;
+    public CadastroRequest(String nome, String email, String senha) {
+        this.nome = nome;
         this.email = email;
         this.senha = senha;
     }
 
     public String getNomeEmpresa() {
-        return nomeEmpresa;
+        return nome;
     }
 
-    public void setNomeEmpresa(String nomeEmpresa) {
-        this.nomeEmpresa = nomeEmpresa;
+    public void setNomeEmpresa(String nome) {
+        this.nome = nome;
     }
 
     public String getEmail() {

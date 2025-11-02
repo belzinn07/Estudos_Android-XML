@@ -10,10 +10,10 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface ApiService {
-    @POST("login")
+    @POST("api/login")
     Call<AutenticarResponse> login(@Body LoginRequest loginRequest);
 
-    @POST("cadastro")
+    @POST("api/cadastro")
     Call<AutenticarResponse> cadastrar(@Body CadastroRequest cadastroRequest);
 
 }

@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.example.controledeestoque_xml.data.local.UsuarioLocalDB;
 import com.example.controledeestoque_xml.data.local.dao.UsuarioDao;
+import com.example.controledeestoque_xml.data.local.database.ProdutoDataBase;
 import com.example.controledeestoque_xml.data.remote.UsuarioRemotoDB;
 import com.example.controledeestoque_xml.data.repository.UsuarioRepository;
 import com.example.controledeestoque_xml.network.RetrofitClient;
@@ -21,14 +22,18 @@ public class InicializadorDeDependencias extends Application {
     }
 
     private void inicializarDependencias(){
-        UsuarioDao usuarioDao = null;
-        UsuarioRemotoDB usuarioRemotoDB = null;
+        // 1. Obter a instância do banco de dados Room
+        ProdutoDataBase database = ProdutoDataBase.getINSTANCE(this);
 
+        // 2. Usar o banco de dados para obter uma instância real do DAO
+        UsuarioDao usuarioDao = database.usuarioDao();
+
+        // 3. Criar os data sources com o DAO real
         UsuarioLocalDB usuarioLocalDB = new UsuarioLocalDB(usuarioDao, Executors.newSingleThreadExecutor());
-        usuarioRemotoDB = new UsuarioRemotoDB(this, RetrofitClient.getApiService());
+        UsuarioRemotoDB usuarioRemotoDB = new UsuarioRemotoDB(this, RetrofitClient.getApiService());
 
-        usuarioRepository = new UsuarioRepository(usuarioRemotoDB,usuarioLocalDB);
-
+        // 4. Criar o repositório
+        usuarioRepository = new UsuarioRepository(usuarioRemotoDB, usuarioLocalDB);
     }
 
     public UsuarioRepository getUsuarioRepository() {

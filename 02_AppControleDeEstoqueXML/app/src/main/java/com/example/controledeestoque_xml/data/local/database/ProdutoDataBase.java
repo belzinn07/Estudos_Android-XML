@@ -11,7 +11,8 @@ import com.example.controledeestoque_xml.data.local.dao.UsuarioDao;
 import com.example.controledeestoque_xml.data.local.entities.Produto;
 import com.example.controledeestoque_xml.data.local.entities.Usuario;
 
-@Database(entities = {Produto.class, Usuario.class}, version = 1, exportSchema = false)
+// 1. Versão incrementada para 2
+@Database(entities = {Produto.class, Usuario.class}, version = 2, exportSchema = false)
 public abstract class ProdutoDataBase extends  RoomDatabase {
     private static volatile ProdutoDataBase instancia;
     public abstract ProdutoDao produtoDao();
@@ -27,13 +28,12 @@ public abstract class ProdutoDataBase extends  RoomDatabase {
                             ProdutoDataBase.class,
                             "produto_db"
                     )
+                            // 2. Este comando irá apagar o banco antigo e criar um novo com a versão 2
                             .fallbackToDestructiveMigration()
-                            .build();;
+                            .build();
                 }
             }
         }
         return instancia;
     }
-
-
 }

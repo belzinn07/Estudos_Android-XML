@@ -38,6 +38,7 @@ public class UsuarioRepository {
                 usuario -> {
                     usuario.setNome(nome);
                     usuario.setEmail(email);
+                    usuario.setSenha(senha);
                     return usuario;
                 }
         );

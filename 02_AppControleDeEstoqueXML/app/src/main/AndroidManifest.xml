@@ -2,10 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
-
+    <!-- 1. Registrando a classe de Application customizada -->
     <application
+        android:name=".core.InicializadorDeDependencias"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,8 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ControleDeEstoqueXML">
         <activity
-            android:name=".view.ui.produto.AddProdutoActivity$MainActivity"
-            android:exported="true">
+            android:name=".core.DecisaoActivity"
+            android:exported="true"
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,12 +26,22 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.ui.produto.AddProdutoActivity">
-        </activity>
+        <activity
+            android:name=".view.ui.autenticacao.LoginActivity"
+            android:exported="false" />
 
+        <activity
+            android:name=".view.ui.produto.AddProdutoActivity"
+            android:exported="false" />
 
+        <activity
+            android:name=".view.ui.produto.MainActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".view.ui.autenticacao.CadastroActivity"
+            android:exported="false" />
 
     </application>
-
 
 </manifest>

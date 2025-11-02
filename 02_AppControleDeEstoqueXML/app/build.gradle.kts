@@ -33,7 +33,8 @@ android {
 
 dependencies {
     implementation(libs.lifecycle.viewmodel.android)
-    val roomVersion = "2.8.2"
+    // 1. Versão do Room corrigida para uma versão estável existente
+    val roomVersion = "2.6.1"
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
 
@@ -43,9 +44,11 @@ dependencies {
         // For control over item selection of both touch and mouse driven selection
         implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
 
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    // 2. Retrofit e Gson atualizados para a versão estável mais recente para garantir compatibilidade
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
 
 
 

@@ -20,6 +20,12 @@ public class AppViewModel extends ViewModel {
         this.usuarioLogado = Transformations.map(usuarioRepository.getUsuarioLogado(), usuario -> usuario != null);
     }
 
+
+    public LiveData<Boolean> isUsuarioLogado() {
+        return usuarioLogado;
+    }
+
+
     public LiveData<Usuario> getUsuarioLogadoLiveData() {
         return usuarioLogadoLiveData;
     }
