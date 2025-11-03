@@ -10,13 +10,11 @@ import com.example.controledeestoque_xml.data.repository.UsuarioRepository;
 public class AppViewModel extends ViewModel {
 
     private final UsuarioRepository usuarioRepository;
-    private final LiveData<Usuario> usuarioLogadoLiveData;
     private final LiveData<Boolean> usuarioLogado;
 
 
     public AppViewModel(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
-        this.usuarioLogadoLiveData = usuarioRepository.getUsuarioLogado();
         this.usuarioLogado = Transformations.map(usuarioRepository.getUsuarioLogado(), usuario -> usuario != null);
     }
 
@@ -26,9 +24,7 @@ public class AppViewModel extends ViewModel {
     }
 
 
-    public LiveData<Usuario> getUsuarioLogadoLiveData() {
-        return usuarioLogadoLiveData;
-    }
+
 
     public  LiveData<Usuario> login(String email, String senha) {
         return usuarioRepository.login(email, senha);

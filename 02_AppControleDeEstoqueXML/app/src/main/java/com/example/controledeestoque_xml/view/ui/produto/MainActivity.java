@@ -1,4 +1,3 @@
-
 package com.example.controledeestoque_xml.view.ui.produto;
 
 import android.app.AlertDialog;
@@ -6,22 +5,29 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.controledeestoque_xml.R;
+import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
 import com.example.controledeestoque_xml.data.local.entities.Produto;
 import com.example.controledeestoque_xml.view.adapter.OnExcluirProdutoListener;
 import com.example.controledeestoque_xml.view.adapter.OnItemClickListener;
 import com.example.controledeestoque_xml.view.adapter.ProdutoAdapter;
+import com.example.controledeestoque_xml.view.ui.autenticacao.LoginActivity;
+import com.example.controledeestoque_xml.viewmodel.global.AppViewModel;
+import com.example.controledeestoque_xml.viewmodel.global.AppViewModelFactory;
 import com.example.controledeestoque_xml.viewmodel.produto.ProdutoViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -29,10 +35,14 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private ProdutoViewModel produtoViewModel;
+
+    private AppViewModel appViewModel;
     private ProdutoAdapter adapter;
     private TextView textValorTotal;
+    private Toolbar toolbar;
 
-    private  static  final int ADD_PRODUTO_REQUEST_CODE = 1;
+
+    private static final int ADD_PRODUTO_REQUEST_CODE = 1;
     private static final int EDIT_PRODUTO_REQUEST_CODE = 2;
 
 
@@ -40,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         FloatingActionButton fabAddProduto = findViewById(R.id.fabAddProduto);
@@ -53,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
 
         produtoViewModel = new ViewModelProvider(this).get(ProdutoViewModel.class);
 
+        // Inicializa o AppViewModel
+        InicializadorDeDependencias inicializador = (InicializadorDeDependencias) getApplication();
+        AppViewModelFactory factory = new AppViewModelFactory(inicializador.getUsuarioRepository());
+        appViewModel = new ViewModelProvider(this, factory).get(AppViewModel.class);
+
         produtoViewModel.getTodosProdutos().observe(this, new Observer<List<Produto>>() {
             @Override
             public void onChanged(List<Produto> produtos) {
@@ -64,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         produtoViewModel.getValorTotalEstoque().observe(this, new Observer<Double>() {
             @Override
             public void onChanged(Double valorTotal) {
-                if (valorTotal != null){
+                if (valorTotal != null) {
                     textValorTotal.setText(String.format("R$ %.2f", valorTotal));
 
                 }
@@ -84,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(Produto produto) {
                 Intent intent = new Intent(MainActivity.this, AddProdutoActivity.class);
-                intent.putExtra("PRODUTO EXTRA",  produto);
+                intent.putExtra("PRODUTO EXTRA", produto);
                 startActivityForResult(intent, EDIT_PRODUTO_REQUEST_CODE);
             }
 
@@ -98,19 +116,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_principal, menu);
+        return true;
+    }
 
-
-
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_logout) {
+            appViewModel.logout();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish(); // Finaliza a MainActivity
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
 
     }
 
-    private void msgConfirmacaoExclusao(Produto produto){
+
+    private void msgConfirmacaoExclusao(Produto produto) {
         Context applicationContext = getApplicationContext();
 
         new AlertDialog.Builder(this)
                 .setTitle("Confirmação")
-                .setMessage("Tem certeza que deseja excluir este produto: ("  + produto.getNome()  + ")? ")
+                .setMessage("Tem certeza que deseja excluir este produto: (" + produto.getNome() + ")? ")
                 .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -132,5 +164,6 @@ public class MainActivity extends AppCompatActivity {
                 .show();
 
     }
+
 
 }

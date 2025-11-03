@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.Utils;
+package com.example.controledeestoque_xml.utils;
 
 import android.content.Context;
 import android.widget.Toast;

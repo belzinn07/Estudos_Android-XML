@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.controledeestoque_xml.R;
-import com.example.controledeestoque_xml.Utils.InputUtils;
+import com.example.controledeestoque_xml.utils.InputUtils;
 import com.example.controledeestoque_xml.viewmodel.global.AppViewModelFactory;
 import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
 import com.example.controledeestoque_xml.view.ui.produto.MainActivity;

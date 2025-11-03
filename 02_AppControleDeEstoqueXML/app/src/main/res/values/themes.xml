@@ -1,8 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.ControleDeEstoqueXML" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Cor primária da marca (ex: barras de ferramentas) -->
+        <item name="colorPrimary">@color/azul_primario</item>
+        
+        <!-- Cor secundária/accent (ex: botões, FAB) -->
+        <item name="colorSecondary">@color/laranja_accent</item>
+
     </style>
 
     <style name="Theme.ControleDeEstoqueXML" parent="Base.Theme.ControleDeEstoqueXML" />

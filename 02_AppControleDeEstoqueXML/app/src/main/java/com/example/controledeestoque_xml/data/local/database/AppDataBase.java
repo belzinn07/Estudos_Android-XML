@@ -11,24 +11,24 @@ import com.example.controledeestoque_xml.data.local.dao.UsuarioDao;
 import com.example.controledeestoque_xml.data.local.entities.Produto;
 import com.example.controledeestoque_xml.data.local.entities.Usuario;
 
-// 1. Versão incrementada para 2
+
 @Database(entities = {Produto.class, Usuario.class}, version = 2, exportSchema = false)
-public abstract class ProdutoDataBase extends  RoomDatabase {
-    private static volatile ProdutoDataBase instancia;
+public abstract class AppDataBase extends  RoomDatabase {
+    private static volatile AppDataBase instancia;
     public abstract ProdutoDao produtoDao();
     public abstract UsuarioDao usuarioDao();
 
 
-    public static  ProdutoDataBase getINSTANCE(Context context){
+    public static AppDataBase getINSTANCE(Context context){
         if (instancia == null){
-            synchronized (ProdutoDataBase.class){
+            synchronized (AppDataBase.class){
                 if (instancia == null){
                     instancia = Room.databaseBuilder(
                             context.getApplicationContext(),
-                            ProdutoDataBase.class,
-                            "produto_db"
+                            AppDataBase.class,
+                            "app_database"
                     )
-                            // 2. Este comando irá apagar o banco antigo e criar um novo com a versão 2
+
                             .fallbackToDestructiveMigration()
                             .build();
                 }

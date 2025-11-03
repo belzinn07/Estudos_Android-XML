@@ -6,6 +6,7 @@ import androidx.lifecycle.MediatorLiveData;
 
 
 import com.example.controledeestoque_xml.data.dtos.AutenticarResponse;
+import com.example.controledeestoque_xml.data.local.GerenciadorDeToken;
 import com.example.controledeestoque_xml.data.local.UsuarioLocalDB;
 import com.example.controledeestoque_xml.data.local.entities.Usuario;
 import com.example.controledeestoque_xml.data.remote.UsuarioRemotoDB;
@@ -16,9 +17,13 @@ public class UsuarioRepository {
     private final UsuarioLocalDB usuarioLocalDB;
     private final UsuarioRemotoDB usuarioRemotoDB;
 
-    public  UsuarioRepository(UsuarioRemotoDB usuarioRemotoDB, UsuarioLocalDB usuarioLocalDB){
+    private final GerenciadorDeToken gerenciadorDeToken;
+
+
+    public  UsuarioRepository(UsuarioRemotoDB usuarioRemotoDB, UsuarioLocalDB usuarioLocalDB, GerenciadorDeToken gerenciadorDeToken){
         this.usuarioRemotoDB = usuarioRemotoDB;
         this.usuarioLocalDB = usuarioLocalDB;
+        this.gerenciadorDeToken = gerenciadorDeToken;
 
     }
 
@@ -73,6 +78,7 @@ public class UsuarioRepository {
 
     public void logout(){
         usuarioLocalDB.deletarUsuarioLogado();
+        gerenciadorDeToken.limparToken();
     }
 
 }

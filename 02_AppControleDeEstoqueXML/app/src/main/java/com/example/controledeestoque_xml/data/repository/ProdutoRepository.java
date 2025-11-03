@@ -5,7 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.LiveData;
 
 import com.example.controledeestoque_xml.data.local.dao.ProdutoDao;
-import com.example.controledeestoque_xml.data.local.database.ProdutoDataBase;
+import com.example.controledeestoque_xml.data.local.database.AppDataBase;
 import com.example.controledeestoque_xml.data.local.entities.Produto;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class ProdutoRepository {
     private final ExecutorService executorService;
 
     public ProdutoRepository(Application application){
-        ProdutoDataBase db = ProdutoDataBase.getINSTANCE(application);
+        AppDataBase db = AppDataBase.getINSTANCE(application);
         produtoDao = db.produtoDao();
         todosProdutos= produtoDao.buscarTodosProdutos();
         executorService = Executors.newSingleThreadExecutor();
