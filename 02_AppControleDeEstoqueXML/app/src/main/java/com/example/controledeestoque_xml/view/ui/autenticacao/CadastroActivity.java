@@ -58,7 +58,6 @@ public class CadastroActivity extends AppCompatActivity {
 
         if (InputUtils.camposInvalidos(this, nome, email, senha)) return;
 
-        // Mostrar loading
         setLoading(true);
 
         appViewModel.cadastrar(nome, email, senha).observe(this, usuario -> {

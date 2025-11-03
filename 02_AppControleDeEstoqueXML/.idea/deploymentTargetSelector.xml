@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="Controle__de_Estoque-XML.app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-11-02T22:31:45.236982100Z">
+        <DropdownSelection timestamp="2025-11-03T14:22:35.325565300Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\netob\.android\avd\Pixel_6a.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Pro-12\.android\avd\Pixel_8.avd" />
             </handle>
           </Target>
         </DropdownSelection>

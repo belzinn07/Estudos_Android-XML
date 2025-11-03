@@ -25,9 +25,9 @@ public class DecisaoActivity extends AppCompatActivity {
 
         AppViewModel appViewModel = new ViewModelProvider(this, factory).get(AppViewModel.class);
 
-        // 2. Observando o CAMPO público, não um método
+
         appViewModel.isUsuarioLogado().observe(this, estaLogado -> {
-            // 3. Lógica simplificada para o booleano
+
             if (estaLogado) {
                 Intent intent = new Intent(DecisaoActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -35,7 +35,7 @@ public class DecisaoActivity extends AppCompatActivity {
                 Intent intent = new Intent(DecisaoActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
-            finish(); // Garante que a tela de decisão sempre seja fechada
+            finish();
         });
     }
 }
