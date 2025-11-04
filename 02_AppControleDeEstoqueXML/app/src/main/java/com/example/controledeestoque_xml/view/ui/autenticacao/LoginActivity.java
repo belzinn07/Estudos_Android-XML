@@ -14,7 +14,7 @@ import com.example.controledeestoque_xml.R;
 import com.example.controledeestoque_xml.utils.InputUtils;
 import com.example.controledeestoque_xml.viewmodel.global.AppViewModelFactory;
 import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
-import com.example.controledeestoque_xml.view.ui.produto.MainActivity;
+import com.example.controledeestoque_xml.view.ui.produto.ListaProdutosActivity;
 import com.example.controledeestoque_xml.viewmodel.global.AppViewModel;
 
 public class LoginActivity extends AppCompatActivity {
@@ -64,7 +64,7 @@ private void realizarLogin(){
    }
 
    private void redirecionarParaInicio(){
-       Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+       Intent intent = new Intent(LoginActivity.this, ListaProdutosActivity.class);
        startActivity(intent);
        finish();
    }

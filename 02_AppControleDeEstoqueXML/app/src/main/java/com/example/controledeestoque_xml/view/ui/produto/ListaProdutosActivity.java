@@ -1,8 +1,5 @@
 package com.example.controledeestoque_xml.view.ui.produto;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,8 +17,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.controledeestoque_xml.R;
+import com.example.controledeestoque_xml.abstractions.ConfirmarAcao;
 import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
 import com.example.controledeestoque_xml.data.local.entities.Produto;
+import com.example.controledeestoque_xml.utils.DialogUtils;
 import com.example.controledeestoque_xml.view.adapter.OnExcluirProdutoListener;
 import com.example.controledeestoque_xml.view.adapter.OnItemClickListener;
 import com.example.controledeestoque_xml.view.adapter.ProdutoAdapter;
@@ -33,7 +32,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class ListaProdutosActivity extends AppCompatActivity {
     private ProdutoViewModel produtoViewModel;
 
     private AppViewModel appViewModel;
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_lista_produtos);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         produtoViewModel = new ViewModelProvider(this).get(ProdutoViewModel.class);
 
-        // Inicializa o AppViewModel
+
         InicializadorDeDependencias inicializador = (InicializadorDeDependencias) getApplication();
         AppViewModelFactory factory = new AppViewModelFactory(inicializador.getUsuarioRepository());
         appViewModel = new ViewModelProvider(this, factory).get(AppViewModel.class);
@@ -93,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         fabAddProduto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddProdutoActivity.class);
+                Intent intent = new Intent(ListaProdutosActivity.this, AddProdutoActivity.class);
                 startActivityForResult(intent, ADD_PRODUTO_REQUEST_CODE);
             }
         });
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(Produto produto) {
-                Intent intent = new Intent(MainActivity.this, AddProdutoActivity.class);
+                Intent intent = new Intent(ListaProdutosActivity.this, AddProdutoActivity.class);
                 intent.putExtra("PRODUTO EXTRA", produto);
                 startActivityForResult(intent, EDIT_PRODUTO_REQUEST_CODE);
             }
@@ -112,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnExcluirProdutoListener(new OnExcluirProdutoListener() {
             @Override
             public void onExcluir(Produto produto) {
-                msgConfirmacaoExclusao(produto);
+                chamarDialogoDeExclusao(produto);
             }
         });
 
@@ -127,42 +126,28 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_logout) {
             appViewModel.logout();
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            Intent intent = new Intent(ListaProdutosActivity.this, LoginActivity.class);
             startActivity(intent);
-            finish(); // Finaliza a MainActivity
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
 
     }
 
+    private void chamarDialogoDeExclusao(Produto produto) {
+        DialogUtils.msgConfirmacaoExclusao(
+                produto,
+                this,
+                        new ConfirmarAcao() {
+                            @Override
+                            public void confirmar() {
 
-    private void msgConfirmacaoExclusao(Produto produto) {
-        Context applicationContext = getApplicationContext();
-
-        new AlertDialog.Builder(this)
-                .setTitle("Confirmação")
-                .setMessage("Tem certeza que deseja excluir este produto: (" + produto.getNome() + ")? ")
-                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        produtoViewModel.deletarProduto(produto);
-                        Toast.makeText(applicationContext, "Produto excluído com sucesso", Toast.LENGTH_SHORT).show();
-
-                    }
-                })
-
-                .setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, "Exclusão cancelada", Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
-                    }
-                })
-
-                .setCancelable(false)
-                .show();
-
+                                produtoViewModel.deletarProduto(produto);
+                                Toast.makeText(ListaProdutosActivity.this, "Produto excluído com sucesso", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                );
     }
 
 

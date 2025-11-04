@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.controledeestoque_xml.view.ui.autenticacao.LoginActivity;
-import com.example.controledeestoque_xml.view.ui.produto.MainActivity;
+import com.example.controledeestoque_xml.view.ui.produto.ListaProdutosActivity;
 import com.example.controledeestoque_xml.viewmodel.global.AppViewModel;
 // 1. Import que faltava
 import com.example.controledeestoque_xml.viewmodel.global.AppViewModelFactory;
@@ -29,7 +29,7 @@ public class DecisaoActivity extends AppCompatActivity {
         appViewModel.isUsuarioLogado().observe(this, estaLogado -> {
 
             if (estaLogado) {
-                Intent intent = new Intent(DecisaoActivity.this, MainActivity.class);
+                Intent intent = new Intent(DecisaoActivity.this, ListaProdutosActivity.class);
                 startActivity(intent);
             } else {
                 Intent intent = new Intent(DecisaoActivity.this, LoginActivity.class);

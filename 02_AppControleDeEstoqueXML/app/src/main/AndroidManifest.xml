@@ -36,7 +36,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".view.ui.produto.MainActivity"
+            android:name=".view.ui.produto.ListaProdutosActivity"
             android:exported="false" />
 
         <activity
