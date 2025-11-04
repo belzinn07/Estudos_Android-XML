@@ -41,7 +41,7 @@ public class CadastroActivity extends AppCompatActivity {
         editEmail = findViewById(R.id.editEmail);
         editSenha = findViewById(R.id.editSenha);
         btnCadastrar = findViewById(R.id.btnCadastrar);
-        progressBar = findViewById(R.id.progressBarCadastro); // adicione um ProgressBar no XML
+        progressBar = findViewById(R.id.progressBarCadastro);
     }
 
     private void inicializarViewModel() {

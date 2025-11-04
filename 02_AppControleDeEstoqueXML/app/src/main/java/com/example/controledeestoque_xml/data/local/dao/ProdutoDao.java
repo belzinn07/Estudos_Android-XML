@@ -22,7 +22,7 @@ public interface ProdutoDao {
     void deletar(Produto produto);
 
     @Query( "SELECT * FROM tabela_produto ORDER BY id DESC")
-    LiveData<List<Produto>>     buscarTodosProdutos();
+    LiveData<List<Produto>> buscarTodosProdutos();
 
 
 }

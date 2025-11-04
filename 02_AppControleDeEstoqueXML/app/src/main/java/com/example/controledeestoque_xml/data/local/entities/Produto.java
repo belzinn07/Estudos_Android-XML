@@ -21,10 +21,11 @@ public class Produto implements Parcelable {
     @ColumnInfo(name = "categoria_produto")
     private Categoria categoria;
 
-    public Produto(String nome, Double precoUnitario, int quantidade){
+    public Produto(String nome, Double precoUnitario, int quantidade, Categoria categoria){
         this.nome = nome;
         this.precoUnitario = precoUnitario;
         this.quantidade =quantidade;
+        this.categoria = categoria;
     }
 
 
@@ -37,6 +38,9 @@ public class Produto implements Parcelable {
             precoUnitario = in.readDouble();
         }
         quantidade = in.readInt();
+        // Lê a categoria a partir do nome (String)
+        String categoriaStr = in.readString();
+        categoria = categoriaStr == null ? null : Categoria.valueOf(categoriaStr);
     }
 
     public static final Creator<Produto> CREATOR = new Creator<Produto>() {
@@ -87,6 +91,7 @@ public class Produto implements Parcelable {
         this.quantidade = quantidade;
     }
 
+
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
@@ -107,5 +112,7 @@ public class Produto implements Parcelable {
             dest.writeDouble(precoUnitario);
         }
         dest.writeInt(quantidade);
+        // Escreve a categoria como o nome dela (String)
+        dest.writeString(categoria == null ? null : categoria.name());
     }
 }
