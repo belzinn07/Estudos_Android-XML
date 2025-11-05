@@ -54,32 +54,20 @@
         android:inputType="phone">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editQuantidade"
+            android:id="@+id/editTelefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/btnSelecionarCategoria"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Selecionar Categoria" />
 
-    <TextView
-        android:id="@+id/textCategoriaSelecionada"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nenhuma categoria selecionada"
-        android:textStyle="italic"
-        android:padding="8dp" />
 
 
     <Button
         android:id="@+id/btnEditar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Atualizar Produto"
+        android:text="Salvar Cliente"
         android:layout_marginTop="24dp"/>
 
 
