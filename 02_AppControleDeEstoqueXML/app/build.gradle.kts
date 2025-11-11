@@ -7,6 +7,8 @@ android {
     namespace = "com.example.controledeestoque_xml"
     compileSdk = 36
 
+
+
     defaultConfig {
         applicationId = "com.example.controledeestoque_xml"
         minSdk = 26
@@ -15,6 +17,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        dataBinding = true
     }
 
     buildTypes {

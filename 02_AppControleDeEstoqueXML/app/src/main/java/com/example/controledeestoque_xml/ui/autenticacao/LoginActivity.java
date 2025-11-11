@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.view.ui.autenticacao;
+package com.example.controledeestoque_xml.ui.autenticacao;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import com.example.controledeestoque_xml.R;
 import com.example.controledeestoque_xml.utils.InputUtils;
 import com.example.controledeestoque_xml.viewmodel.global.AppViewModelFactory;
 import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
-import com.example.controledeestoque_xml.view.ui.produto.ListaProdutosActivity;
+import com.example.controledeestoque_xml.ui.produto.ListaProdutosActivity;
 import com.example.controledeestoque_xml.viewmodel.global.AppViewModel;
 
 public class LoginActivity extends AppCompatActivity {

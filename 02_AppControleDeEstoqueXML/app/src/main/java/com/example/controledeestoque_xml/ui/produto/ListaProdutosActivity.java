@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.view.ui.produto;
+package com.example.controledeestoque_xml.ui.produto;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,10 +21,10 @@ import com.example.controledeestoque_xml.abstractions.ConfirmarAcao;
 import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
 import com.example.controledeestoque_xml.data.local.entities.Produto;
 import com.example.controledeestoque_xml.utils.DialogUtils;
-import com.example.controledeestoque_xml.view.adapter.OnExcluirProdutoListener;
-import com.example.controledeestoque_xml.view.adapter.OnItemClickListener;
-import com.example.controledeestoque_xml.view.adapter.ProdutoAdapter;
-import com.example.controledeestoque_xml.view.ui.autenticacao.LoginActivity;
+import com.example.controledeestoque_xml.ui.adapter.OnExcluirItemListener;
+import com.example.controledeestoque_xml.ui.adapter.OnItemClickListener;
+import com.example.controledeestoque_xml.ui.adapter.ProdutoAdapter;
+import com.example.controledeestoque_xml.ui.autenticacao.LoginActivity;
 import com.example.controledeestoque_xml.viewmodel.global.AppViewModel;
 import com.example.controledeestoque_xml.viewmodel.global.AppViewModelFactory;
 import com.example.controledeestoque_xml.viewmodel.produto.ProdutoViewModel;
@@ -108,7 +108,7 @@ public class ListaProdutosActivity extends AppCompatActivity {
 
         });
 
-        adapter.setOnExcluirProdutoListener(new OnExcluirProdutoListener() {
+        adapter.setOnExcluirProdutoListener(new OnExcluirItemListener() {
             @Override
             public void onExcluir(Produto produto) {
                 chamarDialogoDeExclusao(produto);

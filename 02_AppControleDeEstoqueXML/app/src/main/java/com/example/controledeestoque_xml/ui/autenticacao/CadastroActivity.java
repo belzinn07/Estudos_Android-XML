@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.view.ui.autenticacao;
+package com.example.controledeestoque_xml.ui.autenticacao;
 
 import android.content.Intent;
 import android.os.Bundle;

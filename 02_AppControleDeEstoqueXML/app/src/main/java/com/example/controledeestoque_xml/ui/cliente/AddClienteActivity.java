@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.view.ui.cliente;
+package com.example.controledeestoque_xml.ui.cliente;
 
 import android.content.Intent;
 import android.os.Bundle;

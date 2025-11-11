@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.view.adapter;
+package com.example.controledeestoque_xml.ui.adapter;
 
 import static com.example.controledeestoque_xml.R.*;
 
@@ -22,8 +22,8 @@ import java.util.Locale;
 public class ProdutoAdapter extends  RecyclerView.Adapter<ProdutoAdapter.ProdutoViewHolder>{
 
     private List<Produto> listaDeProdutos = new ArrayList<>();
-    private OnItemClickListener listener;
-    private OnExcluirProdutoListener onExcluirProduto;
+    private OnItemClickListener<Produto> listener;
+    private OnExcluirItemListener<Produto> onExcluirProduto;
 
 
 
@@ -106,7 +106,7 @@ public class ProdutoAdapter extends  RecyclerView.Adapter<ProdutoAdapter.Produto
         this.listener = listener;
     }
 
-    public void setOnExcluirProdutoListener(OnExcluirProdutoListener onExcluirProduto){
+    public void setOnExcluirProdutoListener(OnExcluirItemListener onExcluirProduto){
         this.onExcluirProduto = onExcluirProduto;
     }
 }

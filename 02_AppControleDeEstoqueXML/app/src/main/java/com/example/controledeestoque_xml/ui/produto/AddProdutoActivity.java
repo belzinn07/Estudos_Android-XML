@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.view.ui.produto;
+package com.example.controledeestoque_xml.ui.produto;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -21,7 +21,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.controledeestoque_xml.R;
 import com.example.controledeestoque_xml.data.local.entities.Categoria;
 import com.example.controledeestoque_xml.data.local.entities.Produto;
-import com.example.controledeestoque_xml.utils.InputUtils;
 import com.example.controledeestoque_xml.viewmodel.produto.ProdutoViewModel;
 
 
@@ -31,7 +30,7 @@ public class AddProdutoActivity extends AppCompatActivity {
 
     private EditText editNome,editPreco,editQuantidade;
     private TextView textCategoriaSelecionada;
-    private Button btnSelecionarCategoria,btnEditar;
+    private Button btnSelecionarCategoria, btnSalvar , btnVoltar;
 
     private ProdutoViewModel produtoViewModel;
     private Produto produtoExistente = null;
@@ -50,8 +49,8 @@ public class AddProdutoActivity extends AppCompatActivity {
         verificarProdutoExistente();
 
         btnSelecionarCategoria.setOnClickListener(v-> mostrarCategorias());
-
-        btnEditar.setOnClickListener(v -> salvarProduto());
+        btnSalvar.setOnClickListener(v -> salvarProduto());
+        btnVoltar.setOnClickListener(v-> finish());
     }
 
     private void inicializarViews(){
@@ -60,7 +59,8 @@ public class AddProdutoActivity extends AppCompatActivity {
         editQuantidade = findViewById(R.id.editQuantidade);
         btnSelecionarCategoria = findViewById(R.id.btnSelecionarCategoria);
         textCategoriaSelecionada = findViewById(R.id.textCategoriaSelecionada);
-        btnEditar = findViewById(R.id.btnAdicionar);
+        btnSalvar= findViewById(R.id.btnSalvar);
+        btnVoltar = findViewById(R.id.btnVoltar);
     }
 
     private void configurarViewModel() {
@@ -125,6 +125,7 @@ public class AddProdutoActivity extends AppCompatActivity {
         }else {
             produtoViewModel.adicionarProduto(produtoNovo);
         }
+        finish();
     }
 
 

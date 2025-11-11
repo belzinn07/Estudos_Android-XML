@@ -7,8 +7,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.controledeestoque_xml.view.ui.autenticacao.LoginActivity;
-import com.example.controledeestoque_xml.view.ui.produto.ListaProdutosActivity;
+import com.example.controledeestoque_xml.ui.autenticacao.LoginActivity;
+import com.example.controledeestoque_xml.ui.produto.ListaProdutosActivity;
 import com.example.controledeestoque_xml.viewmodel.global.AppViewModel;
 // 1. Import que faltava
 import com.example.controledeestoque_xml.viewmodel.global.AppViewModelFactory;
