@@ -21,7 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.controledeestoque_xml.R;
 import com.example.controledeestoque_xml.data.local.entities.Categoria;
 import com.example.controledeestoque_xml.data.local.entities.Produto;
-import com.example.controledeestoque_xml.viewmodel.produto.ProdutoViewModel;
+import com.example.controledeestoque_xml.viewmodel.ProdutoViewModel;
 
 
 import java.util.List;

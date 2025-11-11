@@ -1,9 +1,9 @@
-package com.example.controledeestoque_xml.network;
+package com.example.controledeestoque_xml.data.remote;
 
-import com.example.controledeestoque_xml.data.dtos.CadastroRequest;
+import com.example.controledeestoque_xml.data.remote.dtos.CadastroRequest;
 
-import com.example.controledeestoque_xml.data.dtos.LoginRequest;
-import com.example.controledeestoque_xml.data.dtos.AutenticarResponse;
+import com.example.controledeestoque_xml.data.remote.dtos.LoginRequest;
+import com.example.controledeestoque_xml.data.remote.dtos.AutenticarResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

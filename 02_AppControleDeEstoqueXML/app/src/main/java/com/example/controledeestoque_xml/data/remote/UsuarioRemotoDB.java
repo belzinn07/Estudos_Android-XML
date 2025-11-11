@@ -1,16 +1,14 @@
 package com.example.controledeestoque_xml.data.remote;
 
 import android.app.Application;
-import android.content.Context;
 import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.controledeestoque_xml.data.dtos.CadastroRequest;
-import com.example.controledeestoque_xml.data.dtos.AutenticarResponse;
-import com.example.controledeestoque_xml.data.dtos.LoginRequest;
+import com.example.controledeestoque_xml.data.remote.dtos.CadastroRequest;
+import com.example.controledeestoque_xml.data.remote.dtos.AutenticarResponse;
+import com.example.controledeestoque_xml.data.remote.dtos.LoginRequest;
 import com.example.controledeestoque_xml.data.local.GerenciadorDeToken; // Importe a classe GerenciadorDeToken
-import com.example.controledeestoque_xml.network.ApiService;
 
 import retrofit2.Call;
 import retrofit2.Callback;

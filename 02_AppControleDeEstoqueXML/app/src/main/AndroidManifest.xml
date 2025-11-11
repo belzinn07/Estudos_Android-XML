@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ControleDeEstoqueXML">
         <activity
-            android:name=".core.DecisaoActivity"
+            android:name=".ui.auth.DecisaoActivity"
             android:exported="true"
             tools:ignore="Instantiatable">
             <intent-filter>

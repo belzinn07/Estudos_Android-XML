@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.viewmodel.cliente;
+package com.example.controledeestoque_xml.viewmodel;
 
 import android.app.Application;
 
@@ -14,7 +14,6 @@ import java.util.List;
 
 public class ClienteViewModel extends AndroidViewModel {
     private ClienteRepository repository;
-    private LiveData<List<Cliente>> listarTodosClientes;
     private MutableLiveData<String> mensagemLiveData = new MutableLiveData<>();
     public LiveData<String> mensagem = mensagemLiveData;
 
@@ -23,9 +22,13 @@ public class ClienteViewModel extends AndroidViewModel {
     public ClienteViewModel(@NonNull Application application) {
         super(application);
         repository = new ClienteRepository(application);
-        listarTodosClientes = repository.getTodosClientes();
 
     }
+
+    public LiveData<List<Cliente>> getTodosClientes() {
+        return repository.getTodosClientes();
+    }
+
 
     public void adicionarCliente(Cliente clienteNovo){
         repository.adicionarCliente(clienteNovo);

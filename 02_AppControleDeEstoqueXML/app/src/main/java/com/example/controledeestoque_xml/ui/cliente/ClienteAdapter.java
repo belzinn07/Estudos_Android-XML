@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.ui.adapter;
+package com.example.controledeestoque_xml.ui.cliente;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.controledeestoque_xml.R;
 import com.example.controledeestoque_xml.data.local.entities.Cliente;
+import com.example.controledeestoque_xml.abstractions.OnExcluirItemListener;
+import com.example.controledeestoque_xml.abstractions.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,7 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ClienteV
     private List<Cliente> listaDeClientes = new ArrayList<>();
     private OnItemClickListener listener;
     private OnExcluirItemListener onExcluirCliente;
+
 
 
 
@@ -78,4 +81,21 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ClienteV
         }
 
     }
+
+    public void setClientes(List<Cliente> novosClientes){
+        this.listaDeClientes = novosClientes;
+        notifyDataSetChanged();
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.listener = listener;
+    }
+
+    public void setOnExcluirItemListener(OnExcluirItemListener onExcluirCliente){
+        this.onExcluirCliente = onExcluirCliente;
+    }
+
+
+
+
 }

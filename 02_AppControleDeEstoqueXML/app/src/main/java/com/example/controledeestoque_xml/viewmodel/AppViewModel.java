@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.viewmodel.global;
+package com.example.controledeestoque_xml.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Transformations;

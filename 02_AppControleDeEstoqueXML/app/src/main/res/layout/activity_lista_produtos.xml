@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.controledeestoque_xml.viewmodel.produto.ProdutoViewModel" />
+            type="com.example.controledeestoque_xml.viewmodel.ProdutoViewModel" />
         <variable
             name="adapter"
             type="com.example.controledeestoque_xml.ui.adapters.ProdutoAdapter" />

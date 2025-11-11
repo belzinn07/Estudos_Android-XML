@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.ui.adapter;
+package com.example.controledeestoque_xml.abstractions;
 
 
 public interface OnExcluirItemListener<T> {

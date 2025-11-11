@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.network;
+package com.example.controledeestoque_xml.data.remote;
 
 import java.util.concurrent.TimeUnit;
 

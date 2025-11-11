@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.data.dtos;
+package com.example.controledeestoque_xml.data.remote.dtos;
 
 import com.google.gson.annotations.SerializedName;
 

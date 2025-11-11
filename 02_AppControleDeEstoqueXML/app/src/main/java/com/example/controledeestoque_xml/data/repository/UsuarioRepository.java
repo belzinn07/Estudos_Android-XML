@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 
 
-import com.example.controledeestoque_xml.data.dtos.AutenticarResponse;
+import com.example.controledeestoque_xml.data.remote.dtos.AutenticarResponse;
 import com.example.controledeestoque_xml.data.local.GerenciadorDeToken;
 import com.example.controledeestoque_xml.data.local.UsuarioLocalDB;
 import com.example.controledeestoque_xml.data.local.entities.Usuario;

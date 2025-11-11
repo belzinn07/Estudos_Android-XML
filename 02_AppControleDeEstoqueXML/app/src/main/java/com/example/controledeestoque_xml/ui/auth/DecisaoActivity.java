@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.core;
+package com.example.controledeestoque_xml.ui.auth;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,11 +7,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.controledeestoque_xml.ui.autentication.LoginActivity;
+import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
 import com.example.controledeestoque_xml.ui.produto.ListaProdutosActivity;
-import com.example.controledeestoque_xml.viewmodel.global.AppViewModel;
+import com.example.controledeestoque_xml.viewmodel.AppViewModel;
 // 1. Import que faltava
-import com.example.controledeestoque_xml.viewmodel.global.AppViewModelFactory;
+import com.example.controledeestoque_xml.viewmodel.AppViewModelFactory;
 
 public class DecisaoActivity extends AppCompatActivity {
 

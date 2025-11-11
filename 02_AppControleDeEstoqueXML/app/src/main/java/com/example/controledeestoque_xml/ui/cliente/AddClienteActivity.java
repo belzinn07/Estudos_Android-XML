@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.controledeestoque_xml.R;
 import com.example.controledeestoque_xml.data.local.entities.Cliente;
-import com.example.controledeestoque_xml.viewmodel.cliente.ClienteViewModel;
+import com.example.controledeestoque_xml.viewmodel.ClienteViewModel;
 
 public class AddClienteActivity extends AppCompatActivity {
 

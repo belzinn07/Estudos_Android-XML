@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.utils;
+package com.example.controledeestoque_xml.core.utils;
 
 import android.content.Context;
 import android.util.Log;

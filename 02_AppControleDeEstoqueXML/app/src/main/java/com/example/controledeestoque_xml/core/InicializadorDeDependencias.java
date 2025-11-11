@@ -8,7 +8,7 @@ import com.example.controledeestoque_xml.data.local.dao.UsuarioDao;
 import com.example.controledeestoque_xml.data.local.database.AppDataBase;
 import com.example.controledeestoque_xml.data.remote.UsuarioRemotoDB;
 import com.example.controledeestoque_xml.data.repository.UsuarioRepository;
-import com.example.controledeestoque_xml.network.RetrofitClient;
+import com.example.controledeestoque_xml.data.remote.RetrofitClient;
 
 import java.util.concurrent.Executors;
 

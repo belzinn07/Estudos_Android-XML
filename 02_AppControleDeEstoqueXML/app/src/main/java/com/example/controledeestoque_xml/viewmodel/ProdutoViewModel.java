@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.viewmodel.produto;
+package com.example.controledeestoque_xml.viewmodel;
 
 import android.app.Application;
 

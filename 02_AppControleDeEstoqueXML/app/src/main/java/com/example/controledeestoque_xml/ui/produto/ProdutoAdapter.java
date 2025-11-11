@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.ui.adapter;
+package com.example.controledeestoque_xml.ui.produto;
 
 import static com.example.controledeestoque_xml.R.*;
 
@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.controledeestoque_xml.R;
 import com.example.controledeestoque_xml.data.local.entities.Produto;
+import com.example.controledeestoque_xml.abstractions.OnExcluirItemListener;
+import com.example.controledeestoque_xml.abstractions.OnItemClickListener;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -66,9 +68,7 @@ public class ProdutoAdapter extends  RecyclerView.Adapter<ProdutoAdapter.Produto
         notifyDataSetChanged();
     }
 
-    public Produto getProduto(int position){
-        return listaDeProdutos.get(position);
-    }
+
 
 
 

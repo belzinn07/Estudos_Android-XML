@@ -8,9 +8,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.controledeestoque_xml.abstractions.Nomeavel;
+
 
 @Entity(tableName = "tabela_cliente")
-public class Cliente implements Parcelable {
+public class Cliente implements Parcelable, Nomeavel {
     @PrimaryKey(autoGenerate = true)
     private int id;
     @ColumnInfo(name= "nome_cliente")
@@ -86,5 +88,10 @@ public class Cliente implements Parcelable {
         dest.writeString(nome);
         dest.writeString(email);
         dest.writeString(telefone);
+    }
+
+    @Override
+    public String getDescricao() {
+        return "O cliente " + this.nome;
     }
 }

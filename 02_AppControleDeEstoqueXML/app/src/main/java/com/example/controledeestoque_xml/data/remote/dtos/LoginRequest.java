@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.data.dtos;
+package com.example.controledeestoque_xml.data.remote.dtos;
 
 public class LoginRequest {
     private String email;

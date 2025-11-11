@@ -16,13 +16,12 @@ import com.example.controledeestoque_xml.R;
 import com.example.controledeestoque_xml.abstractions.ConfirmarAcao;
 import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
 import com.example.controledeestoque_xml.data.local.entities.Produto;
-import com.example.controledeestoque_xml.ui.adapter.ProdutoAdapter;
-import com.example.controledeestoque_xml.ui.autentication.LoginActivity;
-import com.example.controledeestoque_xml.ui.base.BaseDataBinder;
-import com.example.controledeestoque_xml.utils.DialogUtils;
-import com.example.controledeestoque_xml.viewmodel.global.AppViewModel;
-import com.example.controledeestoque_xml.viewmodel.global.AppViewModelFactory;
-import com.example.controledeestoque_xml.viewmodel.produto.ProdutoViewModel;
+import com.example.controledeestoque_xml.ui.auth.LoginActivity;
+import com.example.controledeestoque_xml.abstractions.BaseDataBinder;
+import com.example.controledeestoque_xml.core.utils.DialogUtils;
+import com.example.controledeestoque_xml.viewmodel.AppViewModel;
+import com.example.controledeestoque_xml.viewmodel.AppViewModelFactory;
+import com.example.controledeestoque_xml.viewmodel.ProdutoViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -121,8 +120,8 @@ public class ProdutoDataBinder extends BaseDataBinder<ListaProdutosActivity> {
 
     }
 
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_logout) {
+    public boolean onItemSelecionadoMenu(int itemId) {
+        if (itemId == R.id.action_logout) {
             appViewModel.logout();
             Intent intent = new Intent(view, LoginActivity.class);
             view.startActivity(intent);
@@ -130,7 +129,6 @@ public class ProdutoDataBinder extends BaseDataBinder<ListaProdutosActivity> {
             return true;
         }
         return false;
-
     }
 
 

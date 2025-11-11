@@ -8,8 +8,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.controledeestoque_xml.abstractions.Nomeavel;
+
 @Entity(tableName = "tabela_produto")
-public class Produto implements Parcelable {
+public class Produto implements Parcelable, Nomeavel {
     @PrimaryKey(autoGenerate = true)
     private int id;
     @ColumnInfo(name = "nome_produto")
@@ -26,6 +28,7 @@ public class Produto implements Parcelable {
         this.precoUnitario = precoUnitario;
         this.quantidade =quantidade;
         this.categoria = categoria;
+
     }
 
 
@@ -114,5 +117,10 @@ public class Produto implements Parcelable {
         dest.writeInt(quantidade);
         // Escreve a categoria como o nome dela (String)
         dest.writeString(categoria == null ? null : categoria.name());
+    }
+
+    @Override
+    public String getDescricao() {
+        return "O produto " + this.nome;
     }
 }

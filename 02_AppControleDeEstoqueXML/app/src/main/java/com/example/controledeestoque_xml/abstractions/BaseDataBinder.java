@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.ui.base;
+package com.example.controledeestoque_xml.abstractions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,7 @@ public abstract class BaseDataBinder<TActivity extends AppCompatActivity>{
         this.view = view;
     }
 
-    public void inicializar(){
+    public final void inicializar(){
         inicializarViews();
         configurarRecyclerView();
         configurarViewModel();
