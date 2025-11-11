@@ -24,7 +24,7 @@ import com.example.controledeestoque_xml.utils.DialogUtils;
 import com.example.controledeestoque_xml.ui.adapter.OnExcluirItemListener;
 import com.example.controledeestoque_xml.ui.adapter.OnItemClickListener;
 import com.example.controledeestoque_xml.ui.adapter.ProdutoAdapter;
-import com.example.controledeestoque_xml.ui.autenticacao.LoginActivity;
+import com.example.controledeestoque_xml.ui.autentication.LoginActivity;
 import com.example.controledeestoque_xml.viewmodel.global.AppViewModel;
 import com.example.controledeestoque_xml.viewmodel.global.AppViewModelFactory;
 import com.example.controledeestoque_xml.viewmodel.produto.ProdutoViewModel;
@@ -108,7 +108,7 @@ public class ListaProdutosActivity extends AppCompatActivity {
 
         });
 
-        adapter.setOnExcluirProdutoListener(new OnExcluirItemListener() {
+        adapter.setOnExcluirItemListener(new OnExcluirItemListener() {
             @Override
             public void onExcluir(Produto produto) {
                 chamarDialogoDeExclusao(produto);

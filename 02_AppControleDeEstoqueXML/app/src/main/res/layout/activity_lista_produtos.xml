@@ -9,13 +9,13 @@
             type="com.example.controledeestoque_xml.viewmodel.produto.ProdutoViewModel" />
         <variable
             name="adapter"
-            type="com.example.controledeestoque_xml.ui.adapter.ProdutoAdapter" />
+            type="com.example.controledeestoque_xml.ui.adapters.ProdutoAdapter" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.produto.ListaProdutosActivity">
+        tools:context=".ui.produtos.ListaProdutosActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"

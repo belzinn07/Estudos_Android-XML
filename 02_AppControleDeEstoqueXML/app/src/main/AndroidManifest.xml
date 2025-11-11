@@ -32,11 +32,11 @@
             android:exported="false" />
 
         <activity
-            android:name=".ui.produto.AddProdutoActivity"
+            android:name=".ui.produtos.AddProdutoActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.produto.ListaProdutosActivity"
+            android:name=".ui.produtos.ListaProdutosActivity"
             android:exported="false" />
 
         <activity

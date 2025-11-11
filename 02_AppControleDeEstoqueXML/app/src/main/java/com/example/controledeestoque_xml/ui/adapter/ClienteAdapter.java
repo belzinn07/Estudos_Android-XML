@@ -11,12 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.controledeestoque_xml.R;
 import com.example.controledeestoque_xml.data.local.entities.Cliente;
-import com.example.controledeestoque_xml.data.local.entities.Produto;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.ClienteViewHolder> {
 

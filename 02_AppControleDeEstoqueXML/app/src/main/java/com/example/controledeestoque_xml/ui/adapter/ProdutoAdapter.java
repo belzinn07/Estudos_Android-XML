@@ -106,7 +106,7 @@ public class ProdutoAdapter extends  RecyclerView.Adapter<ProdutoAdapter.Produto
         this.listener = listener;
     }
 
-    public void setOnExcluirProdutoListener(OnExcluirItemListener onExcluirProduto){
+    public void setOnExcluirItemListener(OnExcluirItemListener onExcluirProduto){
         this.onExcluirProduto = onExcluirProduto;
     }
 }
