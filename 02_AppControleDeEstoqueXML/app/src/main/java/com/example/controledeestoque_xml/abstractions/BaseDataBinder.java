@@ -2,10 +2,10 @@ package com.example.controledeestoque_xml.abstractions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public abstract class BaseDataBinder<TActivity extends AppCompatActivity>{
-    protected final TActivity view;
+public abstract class BaseDataBinder<T extends AppCompatActivity>{
+    protected final T view;
 
-    protected BaseDataBinder(TActivity view) {
+    protected BaseDataBinder(T view) {
         this.view = view;
     }
 

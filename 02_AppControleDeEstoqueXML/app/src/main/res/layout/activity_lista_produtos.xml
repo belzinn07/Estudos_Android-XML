@@ -3,14 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="viewModel"
-            type="com.example.controledeestoque_xml.viewmodel.ProdutoViewModel" />
-        <variable
-            name="adapter"
-            type="com.example.controledeestoque_xml.ui.adapters.ProdutoAdapter" />
-    </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"

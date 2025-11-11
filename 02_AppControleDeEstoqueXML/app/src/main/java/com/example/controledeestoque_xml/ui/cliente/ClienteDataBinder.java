@@ -16,6 +16,7 @@ import com.example.controledeestoque_xml.abstractions.ConfirmarAcao;
 import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
 import com.example.controledeestoque_xml.core.utils.DialogUtils;
 import com.example.controledeestoque_xml.data.local.entities.Cliente;
+import com.example.controledeestoque_xml.ui.auth.LoginActivity;
 import com.example.controledeestoque_xml.viewmodel.AppViewModelFactory;
 import com.example.controledeestoque_xml.viewmodel.ClienteViewModel;
 import com.example.controledeestoque_xml.viewmodel.AppViewModel;
@@ -102,5 +103,16 @@ public class ClienteDataBinder extends BaseDataBinder<ListaDeClientesActivity> {
                    }
            );
        });
+    }
+
+    public boolean onItemSelecionadoMenu(int itemId) {
+        if (itemId == R.id.action_logout) {
+            appViewModel.logout();
+            Intent intent = new Intent(view, LoginActivity.class);
+            view.startActivity(intent);
+            view.finish();
+            return true;
+        }
+        return false;
     }
 }
