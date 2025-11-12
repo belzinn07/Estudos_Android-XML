@@ -17,6 +17,7 @@ public class ListaProdutosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_lista_produtos);
         binder = new ProdutoDataBinder(this);
         binder.inicializar();
 

@@ -2,7 +2,6 @@ package com.example.controledeestoque_xml.ui.produto;
 
 import android.content.Intent;
 import android.os.Parcelable;
-import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 

@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.controledeestoque_xml.R;
 import com.example.controledeestoque_xml.core.utils.InputUtils;
+import com.example.controledeestoque_xml.ui.principal.MainActivity;
 import com.example.controledeestoque_xml.viewmodel.AppViewModelFactory;
 import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
 import com.example.controledeestoque_xml.ui.produto.ListaProdutosActivity;
@@ -64,7 +65,7 @@ private void realizarLogin(){
    }
 
    private void redirecionarParaInicio(){
-       Intent intent = new Intent(LoginActivity.this, ListaProdutosActivity.class);
+       Intent intent = new Intent(LoginActivity.this, MainActivity.class);
        startActivity(intent);
        finish();
    }

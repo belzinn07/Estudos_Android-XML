@@ -2,9 +2,9 @@
 <project version="4">
   <component name="deploymentTargetSelector">
     <selectionStates>
-      <SelectionState runConfigName="Controle__de_Estoque-XML.app">
+      <SelectionState runConfigName="Rodar App">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-11-11T11:15:41.855610600Z">
+        <DropdownSelection timestamp="2025-11-12T11:44:32.536989900Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Pro-12\.android\avd\Pixel_8.avd" />

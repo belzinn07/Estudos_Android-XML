@@ -4,7 +4,7 @@ package com.example.controledeestoque_xml.ui.cliente;
 import android.content.Intent;
 import android.os.Parcelable;
 import android.widget.Toast;
-import android.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
