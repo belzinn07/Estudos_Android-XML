@@ -2,11 +2,11 @@ package com.example.controledeestoque_xml.core;
 
 import android.app.Application;
 
-import com.example.controledeestoque_xml.data.local.GerenciadorDeToken;
-import com.example.controledeestoque_xml.data.local.UsuarioLocalDB;
+import com.example.controledeestoque_xml.core.token.GerenciadorDeToken;
+import com.example.controledeestoque_xml.data.datasource.UsuarioLocalDataSource;
 import com.example.controledeestoque_xml.data.local.dao.UsuarioDao;
 import com.example.controledeestoque_xml.data.local.database.AppDataBase;
-import com.example.controledeestoque_xml.data.remote.UsuarioRemotoDB;
+import com.example.controledeestoque_xml.data.datasource.UsuarioRemotoDataSource;
 import com.example.controledeestoque_xml.data.repository.UsuarioRepository;
 import com.example.controledeestoque_xml.data.remote.RetrofitClient;
 
@@ -28,12 +28,12 @@ public class InicializadorDeDependencias extends Application {
 
         UsuarioDao usuarioDao = database.usuarioDao();
 
-        UsuarioLocalDB usuarioLocalDB = new UsuarioLocalDB(usuarioDao, Executors.newSingleThreadExecutor());
-        UsuarioRemotoDB usuarioRemotoDB = new UsuarioRemotoDB(this, RetrofitClient.getApiService());
+        UsuarioLocalDataSource usuarioLocalDataSource = new UsuarioLocalDataSource(usuarioDao, Executors.newSingleThreadExecutor());
+        UsuarioRemotoDataSource usuarioRemotoDataSource = new UsuarioRemotoDataSource(this, RetrofitClient.getApiService());
         GerenciadorDeToken gerenciadorDeToken = new GerenciadorDeToken(this);
 
 
-        usuarioRepository = new UsuarioRepository(usuarioRemotoDB, usuarioLocalDB, gerenciadorDeToken);
+        usuarioRepository = new UsuarioRepository(usuarioRemotoDataSource, usuarioLocalDataSource, gerenciadorDeToken);
     }
 
     public UsuarioRepository getUsuarioRepository() {

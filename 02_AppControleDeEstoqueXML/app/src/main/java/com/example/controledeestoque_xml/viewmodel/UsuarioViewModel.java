@@ -7,13 +7,13 @@ import androidx.lifecycle.ViewModel;
 import com.example.controledeestoque_xml.data.local.entities.Usuario;
 import com.example.controledeestoque_xml.data.repository.UsuarioRepository;
 
-public class AppViewModel extends ViewModel {
+public class UsuarioViewModel extends ViewModel {
 
     private final UsuarioRepository usuarioRepository;
     private final LiveData<Boolean> usuarioLogado;
 
 
-    public AppViewModel(UsuarioRepository usuarioRepository) {
+    public UsuarioViewModel(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
         this.usuarioLogado = Transformations.map(usuarioRepository.getUsuarioLogado(), usuario -> usuario != null);
     }

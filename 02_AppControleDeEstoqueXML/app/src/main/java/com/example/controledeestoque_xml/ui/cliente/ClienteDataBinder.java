@@ -17,14 +17,14 @@ import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
 import com.example.controledeestoque_xml.core.utils.DialogUtils;
 import com.example.controledeestoque_xml.data.local.entities.Cliente;
 import com.example.controledeestoque_xml.ui.auth.LoginActivity;
-import com.example.controledeestoque_xml.viewmodel.AppViewModelFactory;
+import com.example.controledeestoque_xml.viewmodel.UsuarioViewModelFactory;
 import com.example.controledeestoque_xml.viewmodel.ClienteViewModel;
-import com.example.controledeestoque_xml.viewmodel.AppViewModel;
+import com.example.controledeestoque_xml.viewmodel.UsuarioViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ClienteDataBinder extends BaseDataBinder<ListaDeClientesActivity> {
     private ClienteViewModel clienteViewModel;
-    private AppViewModel appViewModel;
+    private UsuarioViewModel usuarioViewModel;
     private ClienteAdapter clienteAdapter;
 
     private Toolbar toolbar;
@@ -41,7 +41,7 @@ public class ClienteDataBinder extends BaseDataBinder<ListaDeClientesActivity> {
     }
 
     @Override
-    protected void inicializarViews() {
+    protected  void inicializarViews() {
         toolbar = view.findViewById(R.id.toolbar);
         recyclerView = view.findViewById(R.id.recycler_view);
         fabAddCliente = view.findViewById(R.id.fabAddCliente);
@@ -64,8 +64,8 @@ public class ClienteDataBinder extends BaseDataBinder<ListaDeClientesActivity> {
         clienteViewModel = new ViewModelProvider(view).get(ClienteViewModel.class);
 
         InicializadorDeDependencias inicializador = (InicializadorDeDependencias) view.getApplication();
-        AppViewModelFactory factory = new AppViewModelFactory(inicializador.getUsuarioRepository());
-        appViewModel = new ViewModelProvider(view, factory).get(AppViewModel.class);
+        UsuarioViewModelFactory factory = new UsuarioViewModelFactory(inicializador.getUsuarioRepository());
+        usuarioViewModel = new ViewModelProvider(view, factory).get(UsuarioViewModel.class);
 
     }
 
@@ -107,7 +107,7 @@ public class ClienteDataBinder extends BaseDataBinder<ListaDeClientesActivity> {
 
     public boolean onItemSelecionadoMenu(int itemId) {
         if (itemId == R.id.action_logout) {
-            appViewModel.logout();
+            usuarioViewModel.logout();
             Intent intent = new Intent(view, LoginActivity.class);
             view.startActivity(intent);
             view.finish();

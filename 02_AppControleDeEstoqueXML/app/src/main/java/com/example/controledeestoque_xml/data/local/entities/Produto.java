@@ -41,7 +41,7 @@ public class Produto implements Parcelable, Nomeavel {
             precoUnitario = in.readDouble();
         }
         quantidade = in.readInt();
-        // Lê a categoria a partir do nome (String)
+
         String categoriaStr = in.readString();
         categoria = categoriaStr == null ? null : Categoria.valueOf(categoriaStr);
     }

@@ -13,18 +13,16 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.controledeestoque_xml.R;
 import com.example.controledeestoque_xml.core.utils.InputUtils;
 import com.example.controledeestoque_xml.ui.principal.MainActivity;
-import com.example.controledeestoque_xml.viewmodel.AppViewModelFactory;
+import com.example.controledeestoque_xml.viewmodel.UsuarioViewModelFactory;
 import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
-import com.example.controledeestoque_xml.ui.produto.ListaProdutosActivity;
-import com.example.controledeestoque_xml.viewmodel.AppViewModel;
+import com.example.controledeestoque_xml.viewmodel.UsuarioViewModel;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText editEmail,editSenha;
     private Button btnLogin, btnCadastrar;
 
-    private AppViewModel appViewModel;
+    private UsuarioViewModel usuarioViewModel;
 
-   // CONSTRUTOR REMOVIDO - Activities não devem ter construtores customizados.
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,11 +34,10 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnEntrar);
         btnCadastrar = findViewById(R.id.btnCadastrar);
 
-        // A inicialização do ViewModel já é feita corretamente aqui.
         InicializadorDeDependencias inicializador = (InicializadorDeDependencias) getApplication();
-        AppViewModelFactory factory = new AppViewModelFactory(inicializador.getUsuarioRepository());
+        UsuarioViewModelFactory factory = new UsuarioViewModelFactory(inicializador.getUsuarioRepository());
 
-        appViewModel = new ViewModelProvider(this, factory).get(AppViewModel.class);
+        usuarioViewModel = new ViewModelProvider(this, factory).get(UsuarioViewModel.class);
 
         btnLogin.setOnClickListener(v -> realizarLogin() );
         btnCadastrar.setOnClickListener(v -> redirecionarParaCadastro());
@@ -53,7 +50,7 @@ private void realizarLogin(){
 
    if (InputUtils.camposInvalidos(this, email, senha)) return;
 
-   appViewModel.login(email,senha).observe(this, usuario -> {
+   usuarioViewModel.login(email,senha).observe(this, usuario -> {
        if (usuario != null){
            Toast.makeText(this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
            redirecionarParaInicio();

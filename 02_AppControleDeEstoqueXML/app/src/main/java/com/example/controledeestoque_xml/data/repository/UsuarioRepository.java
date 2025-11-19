@@ -6,30 +6,30 @@ import androidx.lifecycle.MediatorLiveData;
 
 
 import com.example.controledeestoque_xml.data.remote.dtos.AutenticarResponse;
-import com.example.controledeestoque_xml.data.local.GerenciadorDeToken;
-import com.example.controledeestoque_xml.data.local.UsuarioLocalDB;
+import com.example.controledeestoque_xml.core.token.GerenciadorDeToken;
+import com.example.controledeestoque_xml.data.datasource.UsuarioLocalDataSource;
 import com.example.controledeestoque_xml.data.local.entities.Usuario;
-import com.example.controledeestoque_xml.data.remote.UsuarioRemotoDB;
+import com.example.controledeestoque_xml.data.datasource.UsuarioRemotoDataSource;
 
 
 
 public class UsuarioRepository {
-    private final UsuarioLocalDB usuarioLocalDB;
-    private final UsuarioRemotoDB usuarioRemotoDB;
+    private final UsuarioLocalDataSource usuarioLocalDataSource;
+    private final UsuarioRemotoDataSource usuarioRemotoDataSource;
 
     private final GerenciadorDeToken gerenciadorDeToken;
 
 
-    public  UsuarioRepository(UsuarioRemotoDB usuarioRemotoDB, UsuarioLocalDB usuarioLocalDB, GerenciadorDeToken gerenciadorDeToken){
-        this.usuarioRemotoDB = usuarioRemotoDB;
-        this.usuarioLocalDB = usuarioLocalDB;
+    public  UsuarioRepository(UsuarioRemotoDataSource usuarioRemotoDataSource, UsuarioLocalDataSource usuarioLocalDataSource, GerenciadorDeToken gerenciadorDeToken){
+        this.usuarioRemotoDataSource = usuarioRemotoDataSource;
+        this.usuarioLocalDataSource = usuarioLocalDataSource;
         this.gerenciadorDeToken = gerenciadorDeToken;
 
     }
 
     public LiveData<Usuario> login(String email, String senha){
         return processarRespostaRemota(
-                usuarioRemotoDB.login(email, senha),
+                usuarioRemotoDataSource.login(email, senha),
                 usuario -> {
                     usuario.setEmail(email);
                     return usuario;
@@ -39,7 +39,7 @@ public class UsuarioRepository {
 
     public LiveData<Usuario> cadastrar(String nome, String email, String senha){
         return processarRespostaRemota(
-                usuarioRemotoDB.cadastrar(nome, email, senha),
+                usuarioRemotoDataSource.cadastrar(nome, email, senha),
                 usuario -> {
                     usuario.setNome(nome);
                     usuario.setEmail(email);
@@ -63,7 +63,7 @@ public class UsuarioRepository {
                 usuario = new Usuario();
                 usuario.setToken(response.getToken());
                 usuario = preencherUsuario.apply(usuario);
-                usuarioLocalDB.salvarUsuario(usuario);
+                usuarioLocalDataSource.salvarUsuario(usuario);
             }
 
             result.postValue(usuario);
@@ -73,11 +73,11 @@ public class UsuarioRepository {
     }
 
     public LiveData<Usuario> getUsuarioLogado(){
-        return usuarioLocalDB.getUsuarioLogado();
+        return usuarioLocalDataSource.getUsuarioLogado();
     }
 
     public void logout(){
-        usuarioLocalDB.deletarUsuarioLogado();
+        usuarioLocalDataSource.deletarUsuarioLogado();
         gerenciadorDeToken.limparToken();
     }
 

@@ -14,15 +14,12 @@ import java.util.List;
 
 public class ClienteViewModel extends AndroidViewModel {
     private ClienteRepository repository;
-    private MutableLiveData<String> mensagemLiveData = new MutableLiveData<>();
-    public LiveData<String> mensagem = mensagemLiveData;
-
-
+    private final MutableLiveData<String> _mensagem = new MutableLiveData<>();
+    public final LiveData<String> mensagem = _mensagem;
 
     public ClienteViewModel(@NonNull Application application) {
         super(application);
         repository = new ClienteRepository(application);
-
     }
 
     public LiveData<List<Cliente>> getTodosClientes() {
@@ -32,14 +29,14 @@ public class ClienteViewModel extends AndroidViewModel {
 
     public void adicionarCliente(Cliente clienteNovo){
         repository.adicionarCliente(clienteNovo);
-        mensagemLiveData.setValue("Cliente adicionado com sucesso!");
+        _mensagem.setValue("Cliente adicionado com sucesso!");
 
     }
 
     public void atualizarCliente(Cliente clienteExistente, Cliente clienteNovo){
         atualizarDadosCliente(clienteExistente,clienteNovo);
         repository.atualizarCliente(clienteExistente);
-        mensagemLiveData.setValue("Cliente atualizado com sucesso!");
+        _mensagem.setValue("Cliente atualizado com sucesso!");
 
     }
 
@@ -51,7 +48,7 @@ public class ClienteViewModel extends AndroidViewModel {
 
     public void excluirCliente(Cliente cliente) {
         repository.excluirCliente(cliente);
-        mensagemLiveData.setValue("Cliente excluído com sucesso!");
+        _mensagem.setValue("Cliente excluído com sucesso!");
 
     }
 

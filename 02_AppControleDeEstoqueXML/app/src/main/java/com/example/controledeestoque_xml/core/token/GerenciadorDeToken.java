@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.data.local;
+package com.example.controledeestoque_xml.core.token;
 
 import android.app.Application;
 import android.content.Context;
@@ -22,16 +22,12 @@ public class GerenciadorDeToken {
         Log.i("TOKEN", "Token JWT salvo com sucesso.");
     }
 
-
-    public String obterToken(){
-        SharedPreferences preferences = appContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        return preferences.getString(KEY_TOKEN, null);
-    }
-
     public void limparToken() {
 
         SharedPreferences preferences = appContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         preferences.edit().remove(KEY_TOKEN).apply();
         Log.i("TOKEN", "Token JWT removido com sucesso.");
     }
+
+
 }

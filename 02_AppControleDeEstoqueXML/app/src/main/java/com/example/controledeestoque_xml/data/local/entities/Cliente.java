@@ -60,7 +60,9 @@ public class Cliente implements Parcelable, Nomeavel {
         this.telefone = telefone;
     }
 
+
     protected Cliente(Parcel in) {
+        id = in.readInt();
         nome = in.readString();
         email = in.readString();
         telefone = in.readString();
@@ -85,6 +87,7 @@ public class Cliente implements Parcelable, Nomeavel {
 
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeInt(id);
         dest.writeString(nome);
         dest.writeString(email);
         dest.writeString(telefone);

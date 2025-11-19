@@ -1,4 +1,4 @@
-package com.example.controledeestoque_xml.data.local;
+package com.example.controledeestoque_xml.data.datasource;
 
 import androidx.lifecycle.LiveData;
 
@@ -7,11 +7,11 @@ import com.example.controledeestoque_xml.data.local.entities.Usuario;
 
 import java.util.concurrent.ExecutorService;
 
-public class UsuarioLocalDB {
+public class UsuarioLocalDataSource {
     private final UsuarioDao usuarioDao;
     private  final ExecutorService executorService;
 
-    public UsuarioLocalDB(UsuarioDao usuarioDao, ExecutorService executorService){
+    public UsuarioLocalDataSource(UsuarioDao usuarioDao, ExecutorService executorService){
         this.usuarioDao = usuarioDao;
         this.executorService = executorService;
     }

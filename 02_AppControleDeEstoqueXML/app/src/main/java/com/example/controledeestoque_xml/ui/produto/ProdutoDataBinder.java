@@ -18,8 +18,8 @@ import com.example.controledeestoque_xml.data.local.entities.Produto;
 import com.example.controledeestoque_xml.ui.auth.LoginActivity;
 import com.example.controledeestoque_xml.abstractions.BaseDataBinder;
 import com.example.controledeestoque_xml.core.utils.DialogUtils;
-import com.example.controledeestoque_xml.viewmodel.AppViewModel;
-import com.example.controledeestoque_xml.viewmodel.AppViewModelFactory;
+import com.example.controledeestoque_xml.viewmodel.UsuarioViewModel;
+import com.example.controledeestoque_xml.viewmodel.UsuarioViewModelFactory;
 import com.example.controledeestoque_xml.viewmodel.ProdutoViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -27,7 +27,7 @@ import java.util.List;
 public class ProdutoDataBinder extends BaseDataBinder<ListaProdutosActivity> {
 
     private ProdutoViewModel produtoViewModel;
-    private AppViewModel appViewModel;
+    private UsuarioViewModel usuarioViewModel;
 
     private ProdutoAdapter adapter;
     private TextView textValorTotal;
@@ -67,8 +67,8 @@ public class ProdutoDataBinder extends BaseDataBinder<ListaProdutosActivity> {
 
 
         InicializadorDeDependencias inicializador = (InicializadorDeDependencias) view.getApplication();
-        AppViewModelFactory factory = new AppViewModelFactory(inicializador.getUsuarioRepository());
-        appViewModel = new ViewModelProvider(view, factory).get(AppViewModel.class);
+        UsuarioViewModelFactory factory = new UsuarioViewModelFactory(inicializador.getUsuarioRepository());
+        usuarioViewModel = new ViewModelProvider(view, factory).get(UsuarioViewModel.class);
     }
 
     @Override
@@ -121,7 +121,7 @@ public class ProdutoDataBinder extends BaseDataBinder<ListaProdutosActivity> {
 
     public boolean onItemSelecionadoMenu(int itemId) {
         if (itemId == R.id.action_logout) {
-            appViewModel.logout();
+            usuarioViewModel.logout();
             Intent intent = new Intent(view, LoginActivity.class);
             view.startActivity(intent);
             view.finish();

@@ -16,13 +16,13 @@ import com.example.controledeestoque_xml.R;
 import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
 import com.example.controledeestoque_xml.ui.auth.LoginActivity;
 import com.example.controledeestoque_xml.ui.cliente.ListaDeClientesActivity;
-import com.example.controledeestoque_xml.viewmodel.AppViewModel;
+import com.example.controledeestoque_xml.viewmodel.UsuarioViewModel;
 import com.example.controledeestoque_xml.ui.produto.ListaProdutosActivity;
-import com.example.controledeestoque_xml.viewmodel.AppViewModelFactory;
+import com.example.controledeestoque_xml.viewmodel.UsuarioViewModelFactory;
 
 
 public class MainActivity extends AppCompatActivity {
-    private AppViewModel appViewModel;
+    private UsuarioViewModel usuarioViewModel;
 
     private Toolbar toolbar;
     private TextView tvBoasVindas, tvEstoque, tvClientes;
@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void configurarViewModel() {
         InicializadorDeDependencias inicializador = (InicializadorDeDependencias) getApplication();
-        AppViewModelFactory factory = new AppViewModelFactory(inicializador.getUsuarioRepository());
-        appViewModel = new ViewModelProvider(this, factory).get(AppViewModel.class);
+        UsuarioViewModelFactory factory = new UsuarioViewModelFactory(inicializador.getUsuarioRepository());
+        usuarioViewModel = new ViewModelProvider(this, factory).get(UsuarioViewModel.class);
     }
 
 
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onItemSelecionadoMenu(int itemId) {
         if (itemId == R.id.action_logout) {
-            appViewModel.logout();
+            usuarioViewModel.logout();
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();

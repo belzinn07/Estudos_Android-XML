@@ -8,10 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
-import com.example.controledeestoque_xml.ui.produto.ListaProdutosActivity;
-import com.example.controledeestoque_xml.viewmodel.AppViewModel;
+import com.example.controledeestoque_xml.ui.principal.MainActivity;
+import com.example.controledeestoque_xml.viewmodel.UsuarioViewModel;
 // 1. Import que faltava
-import com.example.controledeestoque_xml.viewmodel.AppViewModelFactory;
+import com.example.controledeestoque_xml.viewmodel.UsuarioViewModelFactory;
 
 public class DecisaoActivity extends AppCompatActivity {
 
@@ -21,15 +21,15 @@ public class DecisaoActivity extends AppCompatActivity {
 
         InicializadorDeDependencias inicializador = (InicializadorDeDependencias) getApplication();
 
-        AppViewModelFactory factory = new AppViewModelFactory(inicializador.getUsuarioRepository());
+        UsuarioViewModelFactory factory = new UsuarioViewModelFactory(inicializador.getUsuarioRepository());
 
-        AppViewModel appViewModel = new ViewModelProvider(this, factory).get(AppViewModel.class);
+        UsuarioViewModel usuarioViewModel = new ViewModelProvider(this, factory).get(UsuarioViewModel.class);
 
 
-        appViewModel.isUsuarioLogado().observe(this, estaLogado -> {
+        usuarioViewModel.isUsuarioLogado().observe(this, estaLogado -> {
 
             if (estaLogado) {
-                Intent intent = new Intent(DecisaoActivity.this, ListaProdutosActivity.class);
+                Intent intent = new Intent(DecisaoActivity.this, MainActivity.class);
                 startActivity(intent);
             } else {
                 Intent intent = new Intent(DecisaoActivity.this, LoginActivity.class);

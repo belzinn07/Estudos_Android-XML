@@ -15,12 +15,12 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.controledeestoque_xml.R;
 import com.example.controledeestoque_xml.core.utils.InputUtils;
 import com.example.controledeestoque_xml.core.InicializadorDeDependencias;
-import com.example.controledeestoque_xml.viewmodel.AppViewModel;
-import com.example.controledeestoque_xml.viewmodel.AppViewModelFactory;
+import com.example.controledeestoque_xml.viewmodel.UsuarioViewModel;
+import com.example.controledeestoque_xml.viewmodel.UsuarioViewModelFactory;
 
 public class CadastroActivity extends AppCompatActivity {
 
-    private AppViewModel appViewModel;
+    private UsuarioViewModel usuarioViewModel;
     private EditText editNome, editEmail, editSenha;
     private Button btnCadastrar;
     private ProgressBar progressBar;
@@ -46,8 +46,8 @@ public class CadastroActivity extends AppCompatActivity {
 
     private void inicializarViewModel() {
         InicializadorDeDependencias inicializador = (InicializadorDeDependencias) getApplication();
-        AppViewModelFactory factory = new AppViewModelFactory(inicializador.getUsuarioRepository());
-        appViewModel = new ViewModelProvider(this, factory).get(AppViewModel.class);
+        UsuarioViewModelFactory factory = new UsuarioViewModelFactory(inicializador.getUsuarioRepository());
+        usuarioViewModel = new ViewModelProvider(this, factory).get(UsuarioViewModel.class);
     }
 
     private void realizarCadastro() {
@@ -59,7 +59,7 @@ public class CadastroActivity extends AppCompatActivity {
 
         setLoading(true);
 
-        appViewModel.cadastrar(nome, email, senha).observe(this, usuario -> {
+        usuarioViewModel.cadastrar(nome, email, senha).observe(this, usuario -> {
             setLoading(false);
 
             if (usuario != null && usuario.getEmail() != null) {

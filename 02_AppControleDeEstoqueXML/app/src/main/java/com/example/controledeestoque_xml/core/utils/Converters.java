@@ -1,6 +1,8 @@
-package com.example.controledeestoque_xml.data.local.entities;
+package com.example.controledeestoque_xml.core.utils;
 
 import androidx.room.TypeConverter;
+
+import com.example.controledeestoque_xml.data.local.entities.Categoria;
 
 public class Converters {
     @TypeConverter

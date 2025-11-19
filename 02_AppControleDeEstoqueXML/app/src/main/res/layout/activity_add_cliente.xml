@@ -50,21 +50,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Telefone"
-        android:layout_marginTop="16dp"
         android:inputType="phone">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTelefone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTelefone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
 
-
     <Button
-        android:id="@+id/btnEditar"
+        android:id="@+id/btnSalvar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Salvar Cliente"

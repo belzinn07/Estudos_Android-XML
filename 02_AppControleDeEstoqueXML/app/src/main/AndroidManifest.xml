@@ -28,33 +28,33 @@
         </activity>
 
         <activity
-            android:name=".ui.principal.MainActivity"
+            android:name=".ui.auth.CadastroActivity"
             android:exported="false" />
 
+       <activity android:name=".ui.auth.LoginActivity"
+                 android:exported="false" />
 
-        <activity
-            android:name=".ui.autenticacao.LoginActivity"
+        <activity android:name=".ui.principal.MainActivity"
             android:exported="false" />
-
-        <activity
-            android:name=".ui.produto.AddProdutoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.cliente.AddClienteActivity"
-            android:exported="false" />
-
 
         <activity
             android:name=".ui.produto.ListaProdutosActivity"
             android:exported="false" />
 
         <activity
+            android:name=".ui.produto.AddProdutoActivity"
+            android:exported="false" />
+
+
+        <activity
             android:name=".ui.cliente.ListaDeClientesActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.autenticacao.CadastroActivity"
+            android:name=".ui.cliente.AddClienteActivity"
             android:exported="false" />
+
+
 
     </application>
 

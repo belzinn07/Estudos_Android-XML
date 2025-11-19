@@ -1,24 +1,25 @@
-package com.example.controledeestoque_xml.data.remote;
+package com.example.controledeestoque_xml.data.datasource;
 
 import android.app.Application;
 import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.controledeestoque_xml.data.remote.ApiService;
 import com.example.controledeestoque_xml.data.remote.dtos.CadastroRequest;
 import com.example.controledeestoque_xml.data.remote.dtos.AutenticarResponse;
 import com.example.controledeestoque_xml.data.remote.dtos.LoginRequest;
-import com.example.controledeestoque_xml.data.local.GerenciadorDeToken; // Importe a classe GerenciadorDeToken
+import com.example.controledeestoque_xml.core.token.GerenciadorDeToken;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UsuarioRemotoDB {
+public class UsuarioRemotoDataSource {
     private final ApiService apiService;
-    private final GerenciadorDeToken gerenciadorDeToken; // 1. Adicione uma referência ao GerenciadorDeToken
+    private final GerenciadorDeToken gerenciadorDeToken;
 
-    public UsuarioRemotoDB(Application application, ApiService apiService) {
+    public UsuarioRemotoDataSource(Application application, ApiService apiService) {
         this.apiService = apiService;
 
         this.gerenciadorDeToken = new GerenciadorDeToken(application);

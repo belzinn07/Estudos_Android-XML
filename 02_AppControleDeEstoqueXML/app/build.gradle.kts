@@ -38,6 +38,7 @@ android {
 
 dependencies {
     implementation(libs.lifecycle.viewmodel.android)
+    implementation(libs.google.material)
     // 1. Versão do Room corrigida para uma versão estável existente
     val roomVersion = "2.6.1"
     implementation("androidx.room:room-runtime:$roomVersion")

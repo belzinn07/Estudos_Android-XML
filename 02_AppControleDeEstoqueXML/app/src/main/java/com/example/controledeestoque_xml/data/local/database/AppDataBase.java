@@ -9,7 +9,7 @@ import androidx.room.TypeConverters;
 
 import com.example.controledeestoque_xml.data.local.dao.ClienteDao;
 import com.example.controledeestoque_xml.data.local.entities.Cliente;
-import com.example.controledeestoque_xml.data.local.entities.Converters;
+import com.example.controledeestoque_xml.core.utils.Converters;
 import com.example.controledeestoque_xml.data.local.dao.ProdutoDao;
 import com.example.controledeestoque_xml.data.local.dao.UsuarioDao;
 import com.example.controledeestoque_xml.data.local.entities.Produto;
